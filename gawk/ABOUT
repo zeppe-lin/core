@@ -1,0 +1,7 @@
+ABOUT gawk
+
+  This package contains programs for manipulating text files. It is
+  the GNU version of awk (Aho-Weinberg-Kernighan). It is used in many
+  other packages' build scripts.
+
+End of file.

@@ -1,0 +1,65 @@
+# Description: Highly configurable text editor
+# URL:         http://www.vim.org/
+# Depends on:  acl ncurses
+
+name=vim
+version=8.2.2282
+release=1
+source=(https://github.com/vim/vim/archive/v${version}/$name-$version.tar.gz
+	vimrc_Pkgfile.patch)
+
+build () {
+	cd $name-$version/src
+
+	sed -i '/^CFLAGS/d' Makefile
+
+	# Automatically use sh syntax highlighting for Pkgfiles
+	patch -d .. -p1 -i $SRC/vimrc_Pkgfile.patch
+
+	./configure \
+		--prefix=/usr       \
+		--with-vim-name=vim \
+		--without-x         \
+		--disable-gui       \
+		--enable-multibyte  \
+		--enable-cscope     \
+		--disable-gpm       \
+		--disable-nls       \
+
+	make V=1 VIMRTDIR= 
+	make -j1 VIMRTDIR= DESTDIR=$PKG install
+
+	mv $PKG/usr/share/vim/vimrc_example.vim $PKG/usr/share/vim/vimrc
+
+	# remove junk
+	rm -rf $PKG/usr/share/man/man?/vimtutor*
+	rm -rf $PKG/usr/share/vim/tutor
+	rm -rf $PKG/usr/share/vim/macros
+	rm -rf $PKG/usr/bin/vimtutor
+	rm -rf $PKG/usr/share/vim/*/README.txt
+	rm -rf $PKG/usr/share/applications
+	rm -rf $PKG/usr/share/icons
+
+	ln -sf vim      $PKG/usr/bin/evim
+	ln -sf /bin/vi  $PKG/usr/bin/vi
+	ln -sf vim.1.gz $PKG/usr/share/man/man1/ex.1.gz
+	ln -sf vim.1.gz $PKG/usr/share/man/man1/vi.1.gz
+	ln -sf vim.1.gz $PKG/usr/share/man/man1/rvim.1.gz
+	ln -sf vim.1.gz $PKG/usr/share/man/man1/view.1.gz
+	ln -sf vim.1.gz $PKG/usr/share/man/man1/rview.1.gz
+	ln -sf vim.1.gz $PKG/usr/share/man/man1/gvim.1.gz
+
+	./configure \
+		--prefix=/               \
+		--datarootdir=/usr/share \
+		--with-vim-name=vi       \
+		--without-x              \
+		--disable-gui            \
+		--enable-multibyte       \
+		--disable-gpm            \
+		--disable-nls            \
+		--with-features=tiny
+
+	make V=1 VIMRTDIR=
+	make -j1 VIMRTDIR= DESTDIR=$PKG installvimbin
+}

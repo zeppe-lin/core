@@ -1,0 +1,25 @@
+# Description: Arbitrary precision decimal floating point arithmetic
+# URL:         http://www.bytereef.org/mpdecimal/index.html
+
+name=mpdecimal
+version=2.5.0
+release=1
+source=(http://www.bytereef.org/software/$name/releases/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	sed -i \
+		-e '/MPD_OPT=/s/-O2//g;'            \
+		-e '/CONFIGURE_CXXFLAGS/s/-O.//g;'  \
+		configure.ac
+
+	autoreconf -fi
+	./configure \
+		--prefix=/usr
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share
+}

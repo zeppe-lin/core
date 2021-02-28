@@ -1,0 +1,6 @@
+ABOUT sed
+
+  This package allows editing of text without opening it in a text
+  editor. It is also needed by most zeppelin packages' configure scripts.
+  
+End of file.

@@ -1,0 +1,16 @@
+# Description: Simple init
+# URL:         https://github.com/zeppe-lin/init
+
+name=init
+version=1.1-1d1725a
+release=1
+source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz)
+
+build() {
+	cd $name-${version##*-}*
+
+	# build static and strip for size
+	make install \
+		PREFIX= MANPREFIX=/usr/share/man \
+		LDFLAGS='-s -static' DESTDIR=$PKG
+}

@@ -1,0 +1,18 @@
+# Description: PCI bus related utilities
+# URL:         http://mj.ucw.cz/pciutils.shtml
+# Depends on:  eudev
+
+name=pciutils
+version=3.7.0
+release=1
+source=(https://www.kernel.org/pub/software/utils/$name/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	local CONF="ZLIB=no DESTDIR=$PKG PREFIX=/usr"
+
+	make -j1 $CONF V=1 OPT="$CFLAGS" SHARED=yes install install-lib
+	make clean
+	make -j1 $CONF V=1 OPT="$CFLAGS" SHARED=no  install install-lib
+}

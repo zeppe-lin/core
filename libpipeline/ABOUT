@@ -1,0 +1,7 @@
+ABOUT libpipeline
+
+  The libpipeline package contains a library for manipulating pipelines
+  of subprocesses in a flexible and convenient way. It is required
+  by the man-db package.
+
+End of file.

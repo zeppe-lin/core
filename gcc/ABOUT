@@ -1,0 +1,6 @@
+ABOUT gcc
+
+  This package is the Gnu Compiler Collection. It contains the C and
+  C++ compilers as well as several others not built by default.
+
+End of file.

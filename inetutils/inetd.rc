@@ -1,0 +1,23 @@
+#!/bin/sh -e
+#
+# /etc/rc.d/inetd: start/stop inetd(8) daemon
+#
+
+case $1 in
+start)
+	/usr/sbin/inetd
+	;;
+stop)
+	killall -q /usr/sbin/inetd
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

@@ -1,0 +1,20 @@
+# Description: C library for multiple-precision floating-point computations with correct rounding
+# URL:         https://www.mpfr.org/
+# Depends on:  libgmp
+
+name=libmpfr
+version=4.1.0
+release=1
+source=(https://www.mpfr.org/mpfr-${version%-*}/mpfr-${version%-*}.tar.xz)
+
+build() {
+	cd mpfr-${version%-*}
+
+	./configure \
+		--prefix=/usr \
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share
+}

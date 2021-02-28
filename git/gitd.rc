@@ -1,0 +1,38 @@
+#!/bin/sh
+#
+# /etc/rc.d/gitd: start/stop the git-daemon(1)
+#
+
+USER=git
+GROUP=git
+REPOS=/usr/src
+OPTS="--export-all --base-path=$REPOS $REPOS"
+
+case $1 in
+start)
+	/usr/lib/git-core/git-daemon \
+		--user=$USER                 \
+		--group=$GROUP               \
+		--detach                     \
+		--syslog                     \
+		--pid-file=/var/run/gitd.pid \
+		$OPTS
+	;;
+stop)
+	if [ -f /var/run/gitd.pid ]; then
+		kill $(< /var/run/gitd.pid)
+	else
+		killall -q /usr/lib/git-core/git-daemon
+	fi
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

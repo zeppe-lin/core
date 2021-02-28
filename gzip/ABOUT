@@ -1,0 +1,7 @@
+ABOUT gzip
+
+  This package contains programs for compressing and decompressing
+  files. It is needed to decompress many packages in zeppelin and
+  beyond.
+
+End of file.

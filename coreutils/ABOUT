@@ -1,0 +1,8 @@
+ABOUT coreutils
+
+  This package contains a number of essential programs for viewing and
+  manipulating files and directories. These programs are needed for
+  command line file management, and are necessary for the installation
+  procedures of every package.
+
+End of file.

@@ -1,0 +1,56 @@
+# Description: GNU core utilities
+# URL:         http://www.gnu.org/software/coreutils/
+# Depends on:  acl libcap libgmp
+
+name=coreutils
+version=8.32
+release=1
+source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.xz
+	coreutils-uname.patch)
+
+build() {
+	cd $name-$version
+
+	patch -p1 -i $SRC/coreutils-uname.patch
+	export FORCE_UNSAFE_CONFIGURE=1
+
+	./configure \
+		--prefix=/usr         \
+		--libexecdir=/usr/lib \
+		--disable-nls         \
+		--disable-assert      \
+		--enable-no-install-program=uptime,kill,chcon,runcon,groups
+
+	make V=1
+	make DESTDIR=$PKG install 
+
+	install -d $PKG/bin
+
+	mv $PKG/usr/bin/cat      $PKG/bin
+	mv $PKG/usr/bin/chgrp    $PKG/bin
+	mv $PKG/usr/bin/chmod    $PKG/bin
+	mv $PKG/usr/bin/chown    $PKG/bin
+	mv $PKG/usr/bin/cp       $PKG/bin
+	mv $PKG/usr/bin/date     $PKG/bin
+	mv $PKG/usr/bin/dd       $PKG/bin
+	mv $PKG/usr/bin/df       $PKG/bin
+	mv $PKG/usr/bin/echo     $PKG/bin
+	mv $PKG/usr/bin/false    $PKG/bin
+	mv $PKG/usr/bin/ln       $PKG/bin
+	mv $PKG/usr/bin/ls       $PKG/bin
+	mv $PKG/usr/bin/mkdir    $PKG/bin
+	mv $PKG/usr/bin/sleep    $PKG/bin
+	mv $PKG/usr/bin/mknod    $PKG/bin
+	mv $PKG/usr/bin/mv       $PKG/bin
+	mv $PKG/usr/bin/pwd      $PKG/bin
+	mv $PKG/usr/bin/readlink $PKG/bin
+	mv $PKG/usr/bin/rm       $PKG/bin
+	mv $PKG/usr/bin/rmdir    $PKG/bin
+	mv $PKG/usr/bin/stty     $PKG/bin
+	mv $PKG/usr/bin/sync     $PKG/bin
+	mv $PKG/usr/bin/touch    $PKG/bin
+	mv $PKG/usr/bin/true     $PKG/bin
+	mv $PKG/usr/bin/uname    $PKG/bin
+
+	rm -r $PKG/usr/share/info
+}

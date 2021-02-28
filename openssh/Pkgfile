@@ -1,0 +1,42 @@
+# Description: Secure SHell server and client tools
+# URL:         http://www.openssh.org/
+# Depends on:  linux-pam openssl zlib
+
+name=openssh
+version=8.4p1
+release=1
+source=(http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/$name-$version.tar.gz
+	sshd.rc sshd.pam)
+
+build() {
+	cd $name-$version
+
+	sed -i 's/OSSH_CHECK_CFLAG_COMPILE(\[-pipe\])//' configure.ac
+
+	autoreconf -fi
+	./configure \
+		--prefix=/usr                  \
+		--libexecdir=/usr/lib/ssh      \
+		--sysconfdir=/etc/ssh          \
+		--with-mantype=man             \
+		--mandir=/usr/share/man        \
+		--with-md5-passwords           \
+		--with-pam                     \
+		--with-privsep-user=nobody     \
+		--with-privsep-path=/var/empty \
+		--with-xauth=/usr/bin/xauth    \
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	install -Dm0755 $SRC/sshd.rc  $PKG/etc/rc.d/sshd
+	install -Dm0644 $SRC/sshd.pam $PKG/etc/pam.d/sshd
+
+	rm -r $PKG/var
+
+	# enable PAM
+	sed '/^#UsePAM/aUsePAM yes' -i $PKG/etc/ssh/sshd_config
+
+	install -Dm0755 contrib/ssh-copy-id   -t $PKG/usr/bin
+	install -Dm0644 contrib/ssh-copy-id.1 -t $PKG/usr/share/man/man1
+}

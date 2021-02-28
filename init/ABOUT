@@ -1,0 +1,6 @@
+ABOUT init
+
+  This package provides the init program, which is the parent of all
+  other processes oon the Linux system.
+
+End of file.

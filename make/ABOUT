@@ -1,0 +1,6 @@
+ABOUT make
+
+  This package contains a program for directing the building of
+  packages. It is required by almost every package in zeppelin.
+
+End of file.

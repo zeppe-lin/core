@@ -1,0 +1,7 @@
+ABOUT flex
+
+  This package contains a utility for generating programs that
+  recognize patterns in text. It is the GNU version of the lex
+  (lexical analyzer) program. It is required to build several packages.
+
+End of file.

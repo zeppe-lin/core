@@ -1,0 +1,14 @@
+# Description: Check for missing libraries of installed packages
+# URL:         https://github.com/zeppe-lin/revdep
+# Depends on:  elfutils
+
+name=revdep
+version=2.0-7f2aed2
+release=1
+source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz)
+
+build() {
+	cd $name-${version##*-}*
+
+	make DESTDIR=$PKG install
+}

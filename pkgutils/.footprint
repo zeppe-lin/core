@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/bash_completion.d/
+-rwxr-xr-x	root/root	etc/bash_completion.d/pkgutils
+-rw-r--r--	root/root	etc/pkgadd.conf
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/pkgadd
+lrwxrwxrwx	root/root	usr/sbin/pkginfo -> pkgadd
+lrwxrwxrwx	root/root	usr/sbin/pkgrm -> pkgadd
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/man8/
+-rw-r--r--	root/root	usr/share/man/man8/pkgadd.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/pkginfo.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/pkgrm.8.gz

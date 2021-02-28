@@ -1,0 +1,19 @@
+# Description: Generates automatic source code configuration scripts
+# URL:         http://www.gnu.org/software/autoconf
+# Depends on:  gawk m4 perl
+
+name=autoconf
+version=2.70
+release=1
+source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.xz)
+
+build () {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+	make V=1
+	make prefix=$PKG/usr install
+
+	rm -r $PKG/usr/share/info
+}

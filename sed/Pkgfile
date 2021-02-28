@@ -1,0 +1,22 @@
+# Description: Streams EDitor
+# URL:         http://www.gnu.org/software/sed//sed.html
+# Depends on:  acl
+
+name=sed
+version=4.8
+release=1
+source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr   \
+		--exec-prefix=/ \
+		--disable-nls   \
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/info
+}

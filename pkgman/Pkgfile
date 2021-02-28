@@ -1,0 +1,13 @@
+# Description: Advanced package management tool
+# URL:         https://github.com/zeppe-lin/pkgman
+
+name=pkgman
+version=6.0-44e8fd7
+release=1
+source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz)
+
+build() {
+	cd $name-${version##*-}*
+
+	make DESTDIR=$PKG PREFIX=/usr install
+}

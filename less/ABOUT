@@ -1,0 +1,7 @@
+ABOUT less
+
+  This package contains very nice text file viewer that allows
+  scrolling up or down when viewing a file. It is also used by man-db
+  for viewing manpages.
+
+End of file.

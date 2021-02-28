@@ -1,0 +1,7 @@
+ABOUT patch
+
+  This package contains a program for modifying or creating files by
+  applying a patch file typically created by the diff program. It is
+  needed by the build procedure for several zeppelin packages.
+
+End of file.

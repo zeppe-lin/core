@@ -1,0 +1,29 @@
+#!/bin/sh -e
+#
+# /etc/rc.d/dhcpcd: start/stop dhcpcd(8) client daemon
+#
+
+IFACE=wlp1s0
+
+case $1 in
+start)
+	/sbin/dhcpcd --background $IFACE
+	;;
+stop)
+	if [ -f /var/run/dhcpcd/$IFACE.pid ]; then
+		kill $(< /var/run/dhcpcd/$IFACE.pid)
+	else
+		killall -q /sbin/dhcpcd
+	fi
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

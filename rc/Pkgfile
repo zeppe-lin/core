@@ -1,0 +1,40 @@
+# Description: Init Scripts
+# URL:         https://github.com/zeppe-lin
+
+name=rc
+version=2.32
+release=1
+source=(Pkgfile
+	rc.boot
+	rc.conf
+	rc.fix
+	rc.local
+	rc.modules
+	rc.multi
+	rc.shutdown
+	rc.single)
+
+build() {
+	install -d $PKG/etc/rc.d
+
+	install -m0755 rc.boot      $PKG/etc
+	install -m0644 rc.conf      $PKG/etc
+	install -m0755 rc.fix       $PKG/etc
+	install -m0755 rc.local     $PKG/etc
+	install -m0755 rc.modules   $PKG/etc
+	install -m0755 rc.multi     $PKG/etc
+	install -m0755 rc.shutdown  $PKG/etc
+	install -m0755 rc.single    $PKG/etc
+
+	install -d \
+		$PKG/var/log \
+		$PKG/var/lib/urandom
+
+	touch \
+		$PKG/var/log/boot \
+		$PKG/var/lib/urandom/seed
+
+	chmod 0640 \
+		$PKG/var/log/boot \
+		$PKG/var/lib/urandom/seed
+}

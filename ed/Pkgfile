@@ -1,0 +1,20 @@
+# Description: GNU Line-oriented text editor
+# URL:         http://www.gnu.org/software/ed/ed.html
+
+name=ed
+version=1.17
+release=1
+source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.lz)
+
+build() {
+	cd $name-$version
+
+	sed "/^CFLAGS/s/-O2/$CFLAGS/" -i configure
+
+	./configure \
+		--prefix=/usr    \
+		--exec-prefix=/  \
+
+	make V=1
+	make DESTDIR=$PKG install-bin install-man
+}

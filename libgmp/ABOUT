@@ -1,0 +1,6 @@
+ABOUT libgmp
+
+  This package contains math libraries that provide useful functions
+  for arbitrary precision arithmetic. It is required to build gcc.
+
+End of file.

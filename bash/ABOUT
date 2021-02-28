@@ -1,0 +1,8 @@
+ABOUT bash
+
+  This package satisfies an LSB core requirement to provide a Bourne
+  Shell interface to the system. It was chosen over other shell
+  packages because of its common usage and extensive capabilities
+  beyond basic shell functions.
+
+End of file.

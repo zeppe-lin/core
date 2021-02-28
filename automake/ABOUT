@@ -1,0 +1,7 @@
+ABOUT automake
+
+  This package contains programs for generating Make files from a
+  template. It is often needed to rebuild a package after updates to
+  the build procedures.
+
+End of file.

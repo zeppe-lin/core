@@ -1,0 +1,7 @@
+ABOUT man-db
+
+  This package contains programs for finding and viewing man
+  pages. It was chosen instead of the man package due to superior
+  internationalization capabilities. It supplies the man program.
+
+End of file.

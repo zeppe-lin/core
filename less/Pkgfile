@@ -1,0 +1,22 @@
+# Description: Pager program similar to more(1)
+# URL:         http://www.greenwoodsoftware.com/less/
+# Depends on:  libpcre ncurses
+
+name=less
+version=563
+release=1
+source=(http://www.greenwoodsoftware.com/less/$name-$version.tar.gz
+	filter)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr     \
+		--with-regex=pcre \
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	install -Dm0755 $SRC/filter $PKG/usr/lib/less/filter
+}

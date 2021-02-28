@@ -1,0 +1,6 @@
+ABOUT libmpc
+
+  This package contains functions for the arithmetic of complex
+  numbers. It is required by gcc.
+  
+End of file.

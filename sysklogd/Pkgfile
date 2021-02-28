@@ -1,0 +1,46 @@
+# Description: Kernel and system logging daemons
+# URL:         https://github.com/troglobit/sysklogd
+
+name=sysklogd
+version=2.2.0
+release=1
+source=(https://github.com/troglobit/$name/releases/download/v$version/$name-$version.tar.gz
+	rotatelog syslog.cron syslog.conf sysklogd.rc)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr        \
+		--sysconfdir=/etc    \
+		--localstatedir=/var \
+		--without-logger     \
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	install -Dm0755 $SRC/rotatelog   $PKG/usr/sbin/rotatelog
+	install -Dm0755 $SRC/syslog.cron $PKG/etc/cron/weekly/syslog
+	install -Dm0755 $SRC/sysklogd.rc $PKG/etc/rc.d/sysklogd
+	install -Dm0644 $SRC/syslog.conf $PKG/etc/syslog.conf
+
+	install -d $PKG/var/log $PKG/etc/syslog.d
+
+	touch \
+		$PKG/var/log/auth      \
+		$PKG/var/log/cron      \
+		$PKG/var/log/debug     \
+		$PKG/var/log/kernel    \
+		$PKG/var/log/mail      \
+		$PKG/var/log/messages  \
+
+	chmod 640 \
+		$PKG/var/log/auth      \
+		$PKG/var/log/cron      \
+		$PKG/var/log/debug     \
+		$PKG/var/log/kernel    \
+		$PKG/var/log/mail      \
+		$PKG/var/log/messages  \
+
+	rm -r $PKG/usr/share/doc
+}

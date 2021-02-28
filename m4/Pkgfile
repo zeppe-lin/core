@@ -1,0 +1,22 @@
+# Description: GNU version of UNIX m4 macro language processor
+# URL:         http://www.seindal.dk/rene/gnu/
+
+name=m4
+version=1.4.18
+release=1
+source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.xz
+	$name-glibc-2.28.patch)
+
+build() {
+	cd $name-$version
+
+	patch -p1 -i $SRC/$name-glibc-2.28.patch
+
+	./configure \
+		--prefix=/usr \
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/info
+}

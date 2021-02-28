@@ -1,0 +1,7 @@
+ABOUT e2fsprogs
+
+  This package contains the utilities for handling the ext2, ext3 and
+  ext4 file systems. These are the most common and thoroughly tested
+  file systems that Linux supports.
+
+End of file.

@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# /etc/rc.d/sysklogd: start/stop syslogd(8) daemon
+#
+
+case $1 in
+start)
+	/usr/sbin/syslogd -ss
+	;;
+stop)
+	if [ -f /var/run/syslogd.pid ]; then
+		kill $(< /var/run/syslogd.pid)
+	else
+		killall -q /usr/sbin/syslogd
+	fi
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

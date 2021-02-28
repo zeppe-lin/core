@@ -1,0 +1,11 @@
+# Description: Services and protocols files for /etc
+# URL:         http://www.iana.org/
+
+name=iana-etc
+version=20200731
+release=1
+source=(services protocols update.sh)
+
+build() {
+	install -Dm0644 services protocols -t $PKG/etc
+}

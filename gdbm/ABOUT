@@ -1,0 +1,6 @@
+ABOUT gdbm
+
+  This package contains the GNU Database Manager library. It is used
+  by one other package, man-db.
+
+End of file.

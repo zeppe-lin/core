@@ -1,0 +1,6 @@
+ABOUT findutils
+
+  This package contains programs to find files in a file system. It
+  is used in many packages' build scripts.
+
+End of file.

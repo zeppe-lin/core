@@ -1,0 +1,19 @@
+# Description: Generic library support script
+# URL:         http://www.gnu.org/software/libtool/
+
+name=libtool
+version=2.4.6
+release=2
+source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/info
+}

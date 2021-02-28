@@ -1,0 +1,7 @@
+ABOUT xz
+
+  This package contains programs for compressing and decompressing
+  files. It provides the highest compression generally available and
+  is useful for decompressing packages in XZ or LZMA format.
+
+End of file.

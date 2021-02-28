@@ -1,0 +1,7 @@
+ABOUT openssl
+
+  This package provides management tools and libraries relating to
+  cryptography. These are useful for providing cryptographic functions
+  to other packages, including the Linux kernel.
+
+End of file.

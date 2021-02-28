@@ -1,0 +1,6 @@
+ABOUT libcap
+
+  This package implements the user-space interface to the POSIX
+  1003.1e capabilities available in Linux kernels.
+
+End of file.

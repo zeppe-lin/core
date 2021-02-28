@@ -1,0 +1,7 @@
+ABOUT eudev
+
+  This package is a device manager. It dynamically controls the
+  ownership, permissions, names, and symbolic links of devices in
+  the /dev directory as devices are added or removed from the system.
+
+End of file.

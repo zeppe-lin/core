@@ -1,0 +1,24 @@
+# Description: Fast merging drop-in replacement for slocate
+# URL:         https://pagure.io/mlocate
+
+name=mlocate
+version=0.26
+release=2
+source=(https://releases.pagure.org/$name/$name-$version.tar.xz
+	mlocate.cron updatedb.conf)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr            \
+		--sysconfdir=/etc        \
+		--localstatedir=/var/lib \
+		--disable-nls            \
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	install -Dm0755 $SRC/mlocate.cron  $PKG/etc/cron/daily/mlocate
+	install -Dm0644 $SRC/updatedb.conf $PKG/etc
+}

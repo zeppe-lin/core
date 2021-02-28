@@ -1,0 +1,33 @@
+# Description: Standard Unix documentation system accessed using the man command
+# URL:         http://man-db.nongnu.org/
+# Depends on:  gdbm libpipeline zlib
+
+name=man-db
+version=2.9.3
+release=1
+source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.xz
+	mandb.cron)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr                  \
+		--sysconfdir=/etc              \
+		--libexecdir=/usr/lib/$name    \
+		--disable-setuid               \
+		--disable-cache-owner          \
+		--disable-nls                  \
+		--with-systemdtmpfilesdir=no   \
+		--with-systemdsystemunitdir=no \
+		--without-libseccomp           \
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	install -d $PKG/var/cache/man
+	install -Dm0755 -o root -g root $SRC/mandb.cron \
+		$PKG/etc/cron/daily/mandb
+
+	rm -r $PKG/usr/share/doc
+}

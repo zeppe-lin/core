@@ -1,0 +1,7 @@
+ABOUT ncurses
+
+  This package contains libraries for terminal-independent handling of
+  characters screens. It is often used to provide cursor control for
+  a menuing system. It is needed by a number of packages in zeppelin.
+
+End of file.

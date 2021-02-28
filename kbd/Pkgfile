@@ -1,0 +1,45 @@
+# Description: Keytable files and keyboard utilities
+# URL:         https://kbd-project.org/
+
+name=kbd
+version=2.4.0
+release=1
+source=(https://www.kernel.org/pub/linux/utils/$name/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr            \
+		--datadir=/usr/share/kbd \
+		--disable-vlock          \
+		--disable-nls            \
+		--disable-tests          \
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	ln -sf default8x16.psfu.gz \
+		$PKG/usr/share/kbd/consolefonts/default.gz
+
+	# Remove junk and obsolete files
+	rm -rf $PKG/usr/share/kbd/keymaps/ppc
+	rm -rf $PKG/usr/share/kbd/keymaps/mac
+	rm -rf $PKG/usr/share/kbd/keymaps/atari
+	rm -rf $PKG/usr/share/kbd/keymaps/amiga
+	rm -rf $PKG/usr/share/kbd/keymaps/sun
+
+	rm -rf $PKG/usr/bin/loadunimap
+	rm -rf $PKG/usr/share/man/man8/loadunimap.8
+
+	rm -rf $PKG/usr/bin/mapscrn
+	rm -rf $PKG/usr/share/man/man8/mapscrn.8
+
+	rm -rf $PKG/usr/bin/resizecons
+	rm -rf $PKG/usr/share/man/man8/resizecons.8
+
+	rm -rf $PKG/usr/bin/psf*table
+	rm -rf $PKG/usr/share/man/man1/psf*table.1
+
+	find $PKG/usr/share/kbd/ -type f -name "README*" | xargs rm
+}

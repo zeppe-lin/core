@@ -1,0 +1,8 @@
+ABOUT autoconf
+
+  This package contains programs for producing shell scripts that can
+  automatically configure source code from a developer's template.
+  It is often needed to rebuild a package after updates to the build
+  procedures.
+
+End of file.

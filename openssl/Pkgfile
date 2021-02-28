@@ -1,0 +1,33 @@
+# Description: Secure Sockets Layer and Transport Layer Security tools
+# URL:         https://www.openssl.org/
+
+name=openssl
+version=1.1.1i
+release=1
+source=(https://www.openssl.org/source/$name-$version.tar.gz
+	mksslcert.sh)
+
+build() {
+	cd $name-$version
+
+	./config \
+		--prefix=/usr              \
+		--libdir=lib               \
+		--openssldir=/etc/ssl      \
+		shared                     \
+		enable-ec_nistp_64_gcc_128 \
+
+	sed -i -e "s|-O3|$CFLAGS|" Makefile
+
+	make V=1 depend
+	make V=1
+	make V=1 \
+		MANSUFFIX=ssl    \
+		DESTDIR=$PKG     \
+		install_sw       \
+		install_ssldirs  \
+		install_man_docs \
+
+	find $PKG -name "*fips*" -delete
+	install -m 0755 -D $SRC/mksslcert.sh $PKG/usr/bin/mksslcert
+}

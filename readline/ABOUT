@@ -1,0 +1,6 @@
+ABOUT readline
+
+  This package is a set of libraries that offers command-line editing
+  and history capabilities. It is used by bash.
+
+End of file.

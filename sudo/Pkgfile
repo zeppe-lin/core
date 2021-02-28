@@ -1,0 +1,30 @@
+# Description: Sudo (superuser do)
+# URL:         https://www.sudo.ws/sudo/
+# Depends on:  linux-pam zlib
+
+name=sudo
+version=1.9.5p2
+release=1
+source=(https://www.sudo.ws/dist/$name-$version.tar.gz
+	sudo.pam)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr                      \
+		--libexecdir=/usr/lib              \
+		--with-logfac=auth                 \
+		--with-vardir=/var/lib/sudo        \
+		--with-rundir=/var/run/sudo        \
+		--with-sendmail=/usr/sbin/sendmail \
+		--disable-nls                      \
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	# PAM service file
+	install -Dm0644 $SRC/$name.pam $PKG/etc/pam.d/$name
+
+	rm -r $PKG/usr/share/doc
+}

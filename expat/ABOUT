@@ -1,0 +1,6 @@
+ABOUT expat
+
+  This package contains a relatively small XML parsing library. It
+  is required by the XML::Parser Perl module.
+
+End of file.

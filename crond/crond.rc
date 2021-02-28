@@ -1,0 +1,26 @@
+#!/bin/sh -e
+#
+# /etc/rc.d/crond: start/stop crond(8) daemon
+#
+
+case $1 in
+start)
+	/usr/sbin/crond
+	;;
+stop)
+	if [ -f /var/run/crond.pid ]; then
+		kill $(< /var/run/crond.pid)
+	else
+		killall -q /usr/sbin/crond
+	fi
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

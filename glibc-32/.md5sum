@@ -1,0 +1,4 @@
+d38efa0050060c4a5e31a3bdbcc8b4ae  glibc-2.32-2.patch
+720c7992861c57cf97d66a2f36d8d1fa  glibc-2.32.tar.xz
+a8f4549c716cd37244fbf1ed059497f8  lib32.conf
+03451bb100818b179808f8294509db0c  linux-5.4.72.tar.xz

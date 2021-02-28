@@ -1,0 +1,44 @@
+# Description: Userspace device management daemon
+# URL:         https://wiki.gentoo.org/wiki/Project:Eudev
+# Depends on:  kmod util-linux
+
+name=eudev
+version=3.2.9
+release=1
+source=(http://dev.gentoo.org/~blueness/$name/$name-$version.tar.gz
+	81-fuse.rules
+	start_udev)
+
+build() {
+	cd $name-$version
+
+	# needed for static linking, e.g. dmsetup.static
+	sed -i '/^Libs:/s/-ludev/-ludev -lrt/' src/libudev/libudev.pc.in
+
+	./configure \
+		--prefix=/usr           \
+		--sbindir=/sbin         \
+		--bindir=/sbin          \
+		--sysconfdir=/etc       \
+		--with-rootprefix=      \
+		--with-rootlibdir=/lib  \
+		--libexecdir=/lib       \
+		--disable-introspection \
+		--disable-manpages      \
+		--enable-split-usr      \
+
+	make CFLAGS="$CFLAGS -D_GNU_SOURCE" V=1
+	make install DESTDIR=$PKG
+	make -C man install DESTDIR=$PKG
+
+	# create binary hwdb
+	LD_LIBRARY_PATH=$PKG/lib \
+		$PKG/sbin/udevadm hwdb --update --root=$PKG
+
+	# Devices
+	install -d $PKG/lib/{firmware,udev/devices/{pts,shm}}
+	install -d $PKG/{lib,sbin,run}
+
+	install -m0755 $SRC/start_udev    $PKG/sbin
+	install -m0644 $SRC/81-fuse.rules $PKG/lib/udev/rules.d
+}

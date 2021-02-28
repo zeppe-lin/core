@@ -1,0 +1,6 @@
+ABOUT glibc
+
+  This package contains the main C library. Linux programs will not
+  run without it.
+
+End of file.

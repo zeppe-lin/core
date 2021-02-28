@@ -1,0 +1,6 @@
+ABOUT perl
+
+  This package is an interpreter for the runtime language PERL. It
+  is needed for the installation of several zeppelin packages.
+
+End of file.

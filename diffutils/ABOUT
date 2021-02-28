@@ -1,0 +1,7 @@
+ABOUT diffutils
+
+  This package contains programs that show the differences between
+  files and directories. These programs can be used to create patches,
+  and are also used in many packages' build procedures.
+
+End of file.

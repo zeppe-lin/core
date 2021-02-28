@@ -1,0 +1,28 @@
+# Description: IP Routing Utilities
+# URL:         http://www.linuxfoundation.org/collaborate/workgroups/networking/iproute2
+# Depends on:  db iptables libcap
+
+name=iproute2
+version=5.10.0
+release=3
+source=(https://www.kernel.org/pub/linux/utils/net/$name/$name-$version.tar.xz
+	lo.rc net.rc)
+
+build() {
+	cd $name-$version
+
+	# don't link against libelf
+	sed -e 's/^check_elf$/echo "no"/' -i configure
+
+	./configure
+
+	make -j1 CCOPTS="$CFLAGS" V=1
+	make -j1 DESTDIR=$PKG install
+
+	install -Dm0755 $SRC/lo.rc  $PKG/etc/rc.d/lo
+	install -Dm0755 $SRC/net.rc $PKG/etc/rc.d/net
+
+	# add ip to user path via symlink
+	install -d $PKG/bin
+	ln -s /sbin/ip $PKG/bin/ip
+}

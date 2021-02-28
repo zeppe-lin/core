@@ -1,0 +1,6 @@
+ABOUT gperf
+
+  This package contains a program that generates a perfect hash
+  function from a key set. It is required for eudev.
+
+End of file.

@@ -1,0 +1,45 @@
+# Description: Miscellaneous system utilities
+# URL:         https://github.com/karelzak/util-linux
+# Depends on:  file readline
+
+name=util-linux
+version=2.36.1
+release=1
+source=(https://www.kernel.org/pub/linux/utils/$name/v${version:0:4}/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr           \
+		--disable-nls           \
+		\
+		--disable-agetty        \
+		--disable-login         \
+		--disable-su            \
+		--disable-sulogin       \
+		--disable-nologin       \
+		--disable-runuser       \
+		--disable-chfn-chsh     \
+		\
+		--enable-write          \
+		--enable-raw            \
+		--enable-kill           \
+		\
+		--without-systemd       \
+		--without-python        \
+		\
+		--without-hardlink      \
+		# ^^^ get rid of libpcre2 dependency
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	install -d $PKG/{etc,var/{lib/libuuid,run/uuidd}}
+	touch $PKG/etc/adjtime
+
+	# remove junk & obsolete
+	rm $PKG/sbin/{mkfs.bfs,mkfs.minix,fsck.minix}
+	rm $PKG/usr/share/man/man8/{fsck.minix,mkfs.bfs,mkfs.minix}.8
+	rm -r $PKG/usr/share/doc
+}

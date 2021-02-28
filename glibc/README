@@ -1,0 +1,13 @@
+README for glibc
+
+
+LOCALES
+
+  glibc does not contain locales, thus you'll have to generate the
+  locales you need/use. The following example is a typical setup:
+
+    # localedef -i en_US -f UTF-8 en_US.UTF-8
+    # echo 'export LANG=en_US.UTF-8' >> /etc/profile
+
+
+End of file.

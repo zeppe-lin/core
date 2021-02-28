@@ -1,0 +1,4 @@
+3923e28727ff45721113b2fa5cff8c9e  c99
+e9fd9b1789155ad09bcf3ae747596b50  gcc-10.2.0.tar.xz
+61a057afa31006764b957a483ba90b9d  gcc-4.7.3-multilib-dirs.patch
+7c9128522053af79791bcfdd55834c2a  gcc-nocheck-fixincludes.patch

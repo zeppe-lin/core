@@ -1,0 +1,28 @@
+# Description: Network utility for downloading content from the Web
+# URL:         http://www.gnu.org/software/wget
+# Depends on:  libpcre openssl util-linux
+
+name=wget
+version=1.21.1
+release=1
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.lz
+	wgetrc)
+
+build() {
+	cd $name-$version
+
+	autoreconf -fi
+	./configure \
+		--prefix=/usr      \
+		--sysconfdir=/etc  \
+		--disable-nls      \
+		--with-ssl=openssl \
+		--with-included-libunistring
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	install -Dm0644 $SRC/wgetrc $PKG/etc/wgetrc
+
+	rm -r $PKG/usr/share/info
+}

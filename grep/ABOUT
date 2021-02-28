@@ -1,0 +1,6 @@
+ABOUT grep
+
+  This package contains programs for searching through files. These
+  programs are used by most packages' build scripts.
+
+End of file.

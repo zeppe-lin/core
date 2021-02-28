@@ -1,0 +1,13 @@
+# Description: Merge files that were rejected during package upgrades
+# URL:         https://github.com/zeppe-lin/rejmerge
+
+name=rejmerge
+version=5.40.7-44fff54
+release=1
+source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz)
+
+build() {
+	cd $name-${version##*-}*
+
+	make PREFIX=/usr DESTDIR=$PKG install
+}

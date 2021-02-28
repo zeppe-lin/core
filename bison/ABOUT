@@ -1,0 +1,6 @@
+ABOUT bison
+
+  This package contains the GNU version of yacc (Yet Another Compiler
+  Compiler) needed to build several other programs.
+
+End of file.

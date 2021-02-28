@@ -1,0 +1,40 @@
+# Description: Inetd daemon, FTP and telnet client
+# URL:         http://www.gnu.org/software/inetutils/inetutils.html
+# Depends on:  readline
+
+name=inetutils
+version=1.9.4
+release=4
+source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.gz
+	inetd.conf inetd.rc)
+
+build() {
+	cd inetutils-$version
+
+	./configure \
+		--prefix=/usr          \
+		--libexecdir=/usr/sbin \
+		--localstatedir=/var   \
+		--sysconfdir=/etc      \
+		--disable-clients      \
+		--disable-servers      \
+		--enable-ftp           \
+		--enable-hostname      \
+		--enable-ifconfig      \
+		--enable-inetd         \
+		--enable-telnet        \
+		--enable-traceroute    \
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	install -d $PKG/bin $PKG/sbin $PKG/etc
+
+	mv $PKG/usr/bin/hostname $PKG/bin
+	mv $PKG/usr/bin/ifconfig $PKG/sbin
+
+	install -Dm0644 $SRC/inetd.conf $PKG/etc/inetd.conf
+	install -Dm0755 $SRC/inetd.rc   $PKG/etc/rc.d/inetd
+
+	rm -r $PKG/usr/share/info
+}

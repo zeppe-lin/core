@@ -1,0 +1,20 @@
+# Description: Compression utility using the lzma algorithm
+# URL:         https://tukaani.org/xz/
+
+name=xz
+version=5.2.5
+release=1
+source=(https://tukaani.org/xz/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr  \
+		--disable-nls  \
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/doc/
+}

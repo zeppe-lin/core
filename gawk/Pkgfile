@@ -1,0 +1,31 @@
+# Description: GNU awk utility
+# URL:         http://www.gnu.org/software/gawk/gawk.html
+# Depends on:  libmpfr readline
+
+name=gawk
+version=5.1.0
+release=1
+source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr          \
+		--libexecdir=/usr/lib  \
+		--disable-nls          \
+
+	# fix cflags
+	find . \
+		-name Makefile     -or \
+		-name configure    -or \
+		-name configure.ac     \
+		-exec sed -i           \
+		'/CFLAGS =/s/-g//;s/-O2//g;' {} \;
+
+	make V=1
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/{etc,share/info}
+	rm $PKG/usr/bin/gawk-$version
+}

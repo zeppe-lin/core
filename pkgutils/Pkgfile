@@ -1,0 +1,17 @@
+# Description: Set of utilities to manage software packages 
+# URL:         https://github.com/zeppe-lin/pkgutils
+# Depends on:  libarchive
+
+name=pkgutils
+version=5.40.7-d1ac718
+release=1
+source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz)
+
+build () {
+	cd $name-${version##*-}*
+
+	make DESTDIR=$PKG install
+
+	install -Dm0755 bash_completion \
+		$PKG/etc/bash_completion.d/pkgutils
+}

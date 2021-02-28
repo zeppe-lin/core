@@ -1,0 +1,19 @@
+# Description: Simple crond
+# URL:         https://github.com/zeppe-lin/crond
+
+name=crond
+version=0.1-8f20dda
+release=1
+source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz
+	crontab crond.rc runjobs)
+
+build() {
+	cd $name-${version##*-}*
+
+	make DESTDIR=$PKG PREFIX=/usr install
+
+	install -Dm0600 $SRC/crontab  $PKG/etc/crontab
+	install -Dm0755 $SRC/crond.rc $PKG/etc/rc.d/crond
+	install -Dm0755 $SRC/runjobs  $PKG/usr/bin/runjobs
+	install -d $PKG/etc/cron/{hourly,daily,weekly,monthly}
+}

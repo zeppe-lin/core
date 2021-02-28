@@ -1,0 +1,6 @@
+ABOUT libmpfr
+
+This package contains functions for multiple precision arithmetic. It
+is required by gcc.
+
+End of file.

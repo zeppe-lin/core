@@ -1,0 +1,7 @@
+ABOUT sysklogd
+
+  This package contains programs for logging system messages, such
+  as those given by the kernel or daemon processes when unusual
+  events occur.
+
+End of file.

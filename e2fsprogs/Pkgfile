@@ -1,0 +1,32 @@
+# Description: Ext2/3/4 Filesystem Utilities
+# URL:         http://e2fsprogs.sourceforge.net/
+# Depends on:  util-linux
+
+name=e2fsprogs
+version=1.45.6
+release=1
+source=(https://www.kernel.org/pub/linux/kernel/people/tytso/$name/v$version/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr             \
+		--with-root-prefix=       \
+		--disable-e2initrd-helper \
+		--disable-fsck            \
+		--disable-fuse2fs         \
+		--disable-libblkid        \
+		--disable-libuuid         \
+		--disable-nls             \
+		--disable-uuidd           \
+		--enable-elf-shlibs       \
+		--enable-symlink-install  \
+
+	make V=1
+	make -j1 DESTDIR=$PKG install install-libs
+
+	rm -r $PKG/{usr/share/info,etc/cron.d}
+
+	chmod +w -R $PKG
+}

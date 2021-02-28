@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# There is no needs to tell the daemon to re-execute itself.
+# We're using statically compiled init.
+#/sbin/telinit U
+
+# End of file.
