@@ -29,7 +29,7 @@ build() {
 		--without-systemd       \
 		--without-python        \
 		\
-		--without-hardlink      \
+		--disable-hardlink      \
 		# ^^^ get rid of libpcre2 dependency
 
 	make V=1
