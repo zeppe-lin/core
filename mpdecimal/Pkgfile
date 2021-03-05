@@ -2,7 +2,7 @@
 # URL:         http://www.bytereef.org/mpdecimal/index.html
 
 name=mpdecimal
-version=2.5.0
+version=2.5.1
 release=1
 source=(http://www.bytereef.org/software/$name/releases/$name-$version.tar.gz)
 
