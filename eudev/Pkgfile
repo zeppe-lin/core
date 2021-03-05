@@ -3,7 +3,7 @@
 # Depends on:  kmod util-linux
 
 name=eudev
-version=3.2.9
+version=3.2.10
 release=1
 source=(http://dev.gentoo.org/~blueness/$name/$name-$version.tar.gz
 	81-fuse.rules
