@@ -2249,7 +2249,6 @@ drwxr-xr-x	root/root	usr/lib/python3.9/lib-dynload/
 -rwxr-xr-x	root/root	usr/lib/python3.9/lib-dynload/_curses_panel.cpython-39-x86_64-linux-gnu.so
 -rwxr-xr-x	root/root	usr/lib/python3.9/lib-dynload/_datetime.cpython-39-x86_64-linux-gnu.so
 -rwxr-xr-x	root/root	usr/lib/python3.9/lib-dynload/_dbm.cpython-39-x86_64-linux-gnu.so
--rwxr-xr-x	root/root	usr/lib/python3.9/lib-dynload/_decimal.cpython-39-x86_64-linux-gnu.so
 -rwxr-xr-x	root/root	usr/lib/python3.9/lib-dynload/_elementtree.cpython-39-x86_64-linux-gnu.so
 -rwxr-xr-x	root/root	usr/lib/python3.9/lib-dynload/_gdbm.cpython-39-x86_64-linux-gnu.so
 -rwxr-xr-x	root/root	usr/lib/python3.9/lib-dynload/_hashlib.cpython-39-x86_64-linux-gnu.so
@@ -2307,9 +2306,9 @@ drwxr-xr-x	root/root	usr/lib/python3.9/lib-dynload/
 -rwxr-xr-x	root/root	usr/lib/python3.9/lib-dynload/zlib.cpython-39-x86_64-linux-gnu.so
 drwxr-xr-x	root/root	usr/lib/python3.9/lib2to3/
 -rw-r--r--	root/root	usr/lib/python3.9/lib2to3/Grammar.txt
--rw-r--r--	root/root	usr/lib/python3.9/lib2to3/Grammar3.9.1.final.0.pickle
+-rw-r--r--	root/root	usr/lib/python3.9/lib2to3/Grammar3.9.2.final.0.pickle
 -rw-r--r--	root/root	usr/lib/python3.9/lib2to3/PatternGrammar.txt
--rw-r--r--	root/root	usr/lib/python3.9/lib2to3/PatternGrammar3.9.1.final.0.pickle
+-rw-r--r--	root/root	usr/lib/python3.9/lib2to3/PatternGrammar3.9.2.final.0.pickle
 -rw-r--r--	root/root	usr/lib/python3.9/lib2to3/__init__.py
 -rw-r--r--	root/root	usr/lib/python3.9/lib2to3/__main__.py
 drwxr-xr-x	root/root	usr/lib/python3.9/lib2to3/__pycache__/
