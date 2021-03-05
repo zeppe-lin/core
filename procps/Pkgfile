@@ -3,13 +3,13 @@
 # Depends on:  ncurses
 
 name=procps
-version=3.3.16
+version=3.3.17
 release=1
 source=(http://downloads.sourceforge.net/project/$name-ng/Production/$name-ng-$version.tar.xz
 	sysctl.conf)
 
 build() {
-	cd $name-ng-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr        \
@@ -32,6 +32,13 @@ build() {
 		$PKG/usr/lib/libprocps.so
 
 	install -Dm0644 $SRC/sysctl.conf -t $PKG/etc
+
+	# remove localized man pages
+	(cd $PKG/usr/share/man;
+	find . -type d \
+		-not -name man\* -and \
+		-not -name '.'   -and \
+		-not -name '..' | xargs rm -rf)
 
 	rm -r $PKG/usr/share/doc
 }
