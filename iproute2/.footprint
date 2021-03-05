@@ -58,6 +58,11 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/arpd.8.gz
 -rw-r--r--	root/root	usr/share/man/man8/bridge.8.gz
 -rw-r--r--	root/root	usr/share/man/man8/ctstat.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/dcb-buffer.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/dcb-ets.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/dcb-maxrate.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/dcb-pfc.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/dcb.8.gz
 -rw-r--r--	root/root	usr/share/man/man8/devlink-dev.8.gz
 -rw-r--r--	root/root	usr/share/man/man8/devlink-dpipe.8.gz
 -rw-r--r--	root/root	usr/share/man/man8/devlink-health.8.gz

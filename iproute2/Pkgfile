@@ -3,8 +3,8 @@
 # Depends on:  db iptables libcap
 
 name=iproute2
-version=5.10.0
-release=3
+version=5.11.0
+release=1
 source=(https://www.kernel.org/pub/linux/utils/net/$name/$name-$version.tar.xz
 	lo.rc net.rc)
 
