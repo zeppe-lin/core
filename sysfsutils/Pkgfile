@@ -2,13 +2,14 @@
 # URL:         http://linux-diag.sourceforge.net/Sysfsutils.html
 
 name=sysfsutils
-version=2.1.0
-release=2
-source=(http://downloads.sourceforge.net/project/linux-diag/$name/$version/$name-$version.tar.gz)
+version=2.1.1
+release=1
+source=(https://github.com/linux-ras/$name/archive/v$version/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
 
+	./autogen
 	./configure \
 		--prefix=/usr           \
 		--mandir=/usr/share/man \
