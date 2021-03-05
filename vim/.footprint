@@ -121,6 +121,7 @@ drwxr-xr-x	root/root	usr/share/vim/compiler/
 -rw-r--r--	root/root	usr/share/vim/compiler/erlang.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/eruby.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/eslint.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/fbc.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/fortran_F.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/fortran_cv.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/fortran_elf90.vim
@@ -174,6 +175,7 @@ drwxr-xr-x	root/root	usr/share/vim/compiler/
 -rw-r--r--	root/root	usr/share/vim/compiler/sass.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/se.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/shellcheck.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/sml.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/splint.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/stack.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/standard.vim
@@ -355,6 +357,7 @@ drwxr-xr-x	root/root	usr/share/vim/ftplugin/
 -rw-r--r--	root/root	usr/share/vim/ftplugin/automake.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/awk.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/bash.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/basic.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/bdf.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/bst.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/btm.vim
@@ -405,6 +408,7 @@ drwxr-xr-x	root/root	usr/share/vim/ftplugin/
 -rw-r--r--	root/root	usr/share/vim/ftplugin/flexwiki.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/fortran.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/framescript.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/freebasic.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/fstab.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/fvwm.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/gdb.vim
@@ -545,6 +549,7 @@ drwxr-xr-x	root/root	usr/share/vim/ftplugin/
 -rw-r--r--	root/root	usr/share/vim/ftplugin/terminfo.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/tex.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/text.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/tidy.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/tmux.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/treetop.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/tt2html.vim
