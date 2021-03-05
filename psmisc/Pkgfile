@@ -3,7 +3,7 @@
 # Depends on:  ncurses
 
 name=psmisc
-version=23.3
+version=23.4
 release=1
 source=(http://downloads.sourceforge.net/project/$name/$name/$name-$version.tar.xz)
 
@@ -16,6 +16,13 @@ build() {
 
 	make V=1
 	make DESTDIR=$PKG install
+
+	# remove localized man pages
+	(cd $PKG/usr/share/man;
+	find . -type d \
+		-not -name man\* -and \
+		-not -name '.'   -and \
+		-not -name '..' | xargs rm -rf)
 
 	rm $PKG/usr/bin/pstree.x11
 }
