@@ -3,7 +3,7 @@
 # Depends on:  gawk m4 perl
 
 name=autoconf
-version=2.70
+version=2.71
 release=1
 source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.xz)
 
