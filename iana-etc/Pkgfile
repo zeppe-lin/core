@@ -2,7 +2,7 @@
 # URL:         http://www.iana.org/
 
 name=iana-etc
-version=20200731
+version=20210305
 release=1
 source=(services protocols update.sh)
 

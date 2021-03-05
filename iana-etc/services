@@ -1,4 +1,4 @@
-# /etc/services, created 2020-08-11T13:50:07+0200
+# /etc/services, created 2021-03-05T11:11:22+0200
 # Source: https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xml
 tcpmux              1/tcp
 tcpmux              1/udp
@@ -240,7 +240,6 @@ emfis-cntl        141/udp
 bl-idm            142/tcp
 bl-idm            142/udp
 imap              143/tcp
-imap              143/udp
 uma               144/tcp
 uma               144/udp
 uaac              145/tcp
@@ -1377,7 +1376,6 @@ nas               991/udp
 telnets           992/tcp
 telnets           992/udp
 imaps             993/tcp
-imaps             993/udp
 pop3s             995/tcp
 pop3s             995/udp
 vsinet            996/tcp
@@ -4076,6 +4074,7 @@ hydra            2374/tcp
 docker           2375/tcp
 docker-s         2376/tcp
 swarm            2377/tcp
+dali             2378/udp
 etcd-client      2379/tcp
 etcd-server      2380/tcp
 compaq-https     2381/tcp
@@ -7226,8 +7225,6 @@ secure-cfg-svr   3978/tcp
 secure-cfg-svr   3978/udp
 smwan            3979/tcp
 smwan            3979/udp
-acms             3980/tcp
-acms             3980/udp
 starfish         3981/tcp
 starfish         3981/udp
 eis              3982/tcp
@@ -7664,6 +7661,7 @@ pscl-mgt         4312/tcp
 perrla           4313/tcp
 choiceview-agt   4314/tcp
 choiceview-clt   4316/tcp
+opentelemetry    4317/tcp
 fdt-rcatp        4320/tcp
 fdt-rcatp        4320/udp
 rwhois           4321/tcp
@@ -8863,8 +8861,8 @@ spramsd          5770/tcp
 spramsd          5770/udp
 netagent         5771/tcp
 netagent         5771/udp
-dali-port        5777/tcp
-dali-port        5777/udp
+starfield-io     5777/tcp
+starfield-io     5777/udp
 vts-rpc          5780/tcp
 3par-evts        5781/tcp
 3par-evts        5781/udp
@@ -9274,6 +9272,7 @@ tsa              6689/udp
 cleverdetect     6690/tcp
 babel            6696/udp
 ircs-u           6697/tcp
+babel-dtls       6699/udp
 kti-icad-srvr    6701/tcp
 kti-icad-srvr    6701/udp
 e-design-net     6702/tcp
@@ -9779,6 +9778,8 @@ ca-audit-da      8025/tcp
 ca-audit-da      8025/udp
 ca-audit-ds      8026/tcp
 ca-audit-ds      8026/udp
+papachi-p2p-srv  8027/tcp
+papachi-p2p-srv  8027/udp
 pro-ed           8032/tcp
 pro-ed           8032/udp
 mindprint        8033/tcp
@@ -10079,6 +10080,7 @@ jmb-cds1         8900/tcp
 jmb-cds1         8900/udp
 jmb-cds2         8901/tcp
 jmb-cds2         8901/udp
+dpp              8908/tcp
 manyone-http     8910/tcp
 manyone-http     8910/udp
 manyone-xml      8911/tcp
@@ -10318,6 +10320,7 @@ laes-bf          9536/tcp
 laes-bf          9536/udp
 trispen-sra      9555/tcp
 trispen-sra      9555/udp
+p4runtime        9559/tcp
 ldgateway        9592/tcp
 ldgateway        9592/udp
 cba8             9593/tcp
@@ -10585,6 +10588,8 @@ wifree          11208/tcp
 wifree          11208/udp
 memcache        11211/tcp
 memcache        11211/udp
+xcompute        11235/tcp
+xcompute        11235/sctp
 imip            11319/tcp
 imip            11319/udp
 imip-channels   11320/tcp
@@ -10899,6 +10904,7 @@ sxuptp          19540/udp
 jcp             19541/tcp
 jcp             19541/udp
 mle             19788/udp
+faircom-db      19790/tcp
 iec-104-sec     19998/tcp
 dnp-sec         19999/tcp
 dnp-sec         19999/udp
@@ -10980,6 +10986,8 @@ wnn6            22273/tcp
 wnn6            22273/udp
 cis             22305/tcp
 cis             22305/udp
+showcockpit-net 22333/tcp
+showcockpit-net 22333/udp
 shrewd-control  22335/tcp
 shrewd-stream   22335/udp
 cis-secure      22343/tcp
