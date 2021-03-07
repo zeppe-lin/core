@@ -4,7 +4,7 @@
 
 name=vim
 version=8.2.2569
-release=1
+release=2
 source=(https://github.com/vim/vim/archive/v${version}/$name-$version.tar.gz
 	vimrc_Pkgfile.patch)
 
@@ -18,13 +18,14 @@ build () {
 
 	./configure \
 		--prefix=/usr       \
+		--disable-canberra  \
+		--disable-gpm       \
+		--disable-gui       \
+		--disable-nls       \
+		--enable-cscope     \
+		--enable-multibyte  \
 		--with-vim-name=vim \
 		--without-x         \
-		--disable-gui       \
-		--enable-multibyte  \
-		--enable-cscope     \
-		--disable-gpm       \
-		--disable-nls       \
 
 	make V=1 VIMRTDIR= 
 	make -j1 VIMRTDIR= DESTDIR=$PKG install
