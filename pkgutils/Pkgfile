@@ -3,7 +3,7 @@
 # Depends on:  libarchive
 
 name=pkgutils
-version=5.40.7-d1ac718
+version=5.40.7-98fe961
 release=1
 source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz)
 
@@ -12,6 +12,6 @@ build () {
 
 	make DESTDIR=$PKG install
 
-	install -Dm0755 bash_completion \
+	install -m 0755 -D bash_completion \
 		$PKG/etc/bash_completion.d/pkgutils
 }
