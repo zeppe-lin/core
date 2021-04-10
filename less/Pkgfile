@@ -3,7 +3,7 @@
 # Depends on:  libpcre ncurses
 
 name=less
-version=580
+version=581
 release=1
 source=(http://www.greenwoodsoftware.com/less/$name-$version.tar.gz
 	filter)
@@ -18,5 +18,5 @@ build() {
 	make V=1
 	make DESTDIR=$PKG install
 
-	install -Dm0755 $SRC/filter $PKG/usr/lib/less/filter
+	install -m 0755 -D $SRC/filter $PKG/usr/lib/less/filter
 }
