@@ -162,6 +162,7 @@ drwxr-xr-x	root/root	usr/share/vim/compiler/
 -rw-r--r--	root/root	usr/share/vim/compiler/pbx.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/perl.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/php.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/powershell.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/pylint.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/pyunit.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/rake.vim
@@ -210,6 +211,7 @@ drwxr-xr-x	root/root	usr/share/vim/doc/
 -rw-r--r--	root/root	usr/share/vim/doc/filetype.txt
 -rw-r--r--	root/root	usr/share/vim/doc/fold.txt
 -rw-r--r--	root/root	usr/share/vim/doc/ft_ada.txt
+-rw-r--r--	root/root	usr/share/vim/doc/ft_ps1.txt
 -rw-r--r--	root/root	usr/share/vim/doc/ft_rust.txt
 -rw-r--r--	root/root	usr/share/vim/doc/ft_sql.txt
 -rw-r--r--	root/root	usr/share/vim/doc/gui.txt
@@ -501,6 +503,8 @@ drwxr-xr-x	root/root	usr/share/vim/ftplugin/
 -rw-r--r--	root/root	usr/share/vim/ftplugin/procmail.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/prolog.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/protocols.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/ps1.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/ps1xml.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/pyrex.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/python.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/qf.vim
@@ -664,6 +668,7 @@ drwxr-xr-x	root/root	usr/share/vim/indent/
 -rw-r--r--	root/root	usr/share/vim/indent/postscr.vim
 -rw-r--r--	root/root	usr/share/vim/indent/pov.vim
 -rw-r--r--	root/root	usr/share/vim/indent/prolog.vim
+-rw-r--r--	root/root	usr/share/vim/indent/ps1.vim
 -rw-r--r--	root/root	usr/share/vim/indent/pyrex.vim
 -rw-r--r--	root/root	usr/share/vim/indent/python.vim
 -rw-r--r--	root/root	usr/share/vim/indent/r.vim
@@ -1226,6 +1231,8 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/promela.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/proto.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/protocols.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/ps1.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/ps1xml.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/psf.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/ptcap.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/purifylog.vim
