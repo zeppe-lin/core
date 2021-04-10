@@ -1,7 +1,8 @@
-README for bash-completion
+-=[ README for bash-completion ]=-
 
 
 POST-INSTALL
+============
 
   The easiest way to use bash-completion is to source it from either
   /etc/bashrc or ~/.bashrc (or any other file sourcing those). You

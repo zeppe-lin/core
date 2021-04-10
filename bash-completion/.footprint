@@ -60,7 +60,6 @@ lrwxrwxrwx	root/root	usr/share/bash-completion/completions/animate -> convert
 -rw-r--r--	root/root	usr/share/bash-completion/completions/apache2ctl
 -rw-r--r--	root/root	usr/share/bash-completion/completions/appdata-validate
 lrwxrwxrwx	root/root	usr/share/bash-completion/completions/apropos -> man
-lrwxrwxrwx	root/root	usr/share/bash-completion/completions/aptitude-curses -> aptitude
 -rw-r--r--	root/root	usr/share/bash-completion/completions/arch
 lrwxrwxrwx	root/root	usr/share/bash-completion/completions/arm-koji -> koji
 -rw-r--r--	root/root	usr/share/bash-completion/completions/arp

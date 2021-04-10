@@ -3,7 +3,7 @@
 
 name=bash-completion
 version=2.11
-release=1
+release=2
 source=(https://github.com/scop/$name/releases/download/$version/$name-$version.tar.xz)
 
 build() {
@@ -23,7 +23,7 @@ build() {
 
 	# remove package tools intended for other distributions which
 	# do not exist in zeppelin
-	rm $PKG/usr/share/$name/completions/{apt-*,aptitude,dpkg*}
+	rm $PKG/usr/share/$name/completions/{apt-*,aptitude*,dpkg*}
 	rm $PKG/usr/share/$name/completions/{explode,install,make,remove,sbo,slack,upgrade}pkg
 	rm $PKG/usr/share/$name/completions/{pkg-get,pkg_*,pkg{add,rm,tool,util},slapt-*}
 }
