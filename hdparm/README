@@ -1,7 +1,8 @@
-README for hdparm
+-=[ README for hdparm ]=-
 
 
 NOTES
+=====
 
   It is possible to make the ext3 filesystem reliable across power
   failures for some hard disk types. To do this, add the barrier=1

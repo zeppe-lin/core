@@ -1,7 +1,8 @@
-README for glibc
+-=[ README for glibc ]=-
 
 
 LOCALES
+=======
 
   glibc does not contain locales, thus you'll have to generate the
   locales you need/use. The following example is a typical setup:
