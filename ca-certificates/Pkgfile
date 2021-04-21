@@ -2,10 +2,10 @@
 # URL:         https://curl.haxx.se/ca/
 
 name=ca-certificates
-version=20210119
+version=20210413
 release=1
 source=(cacert.pem)
 
-build () {
+build() {
 	install -m 644 -D $SRC/cacert.pem $PKG/etc/ssl/cert.pem
 }
