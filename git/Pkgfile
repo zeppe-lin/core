@@ -4,9 +4,9 @@
 # Optional:    tk
 
 name=git
-version=2.30.0
+version=2.31.1
 release=1
-source=(https://www.kernel.org/pub/software/scm/git/git-{,manpages-}$version.tar.xz
+source=(https://www.kernel.org/pub/software/scm/git/git-{,manpages-}$version.tar.xz \
 	gitd.rc)
 
 build() {
@@ -24,17 +24,17 @@ build() {
 		DESTDIR=$PKG                            \
 		V=1                                     \
 	
-	install -Dm0644 contrib/completion/git-completion.bash \
+	install -m 0644 -D contrib/completion/git-completion.bash \
 		$PKG/etc/bash_completion.d/git
 
 	cd $SRC
 
 	for i in man*; do
-		install -d         $PKG/usr/share/man/$i
-		install -m644 $i/* $PKG/usr/share/man/$i
+		install -d          $PKG/usr/share/man/$i
+		install -m 644 $i/* $PKG/usr/share/man/$i
 	done
 
-	install -Dm0755 $SRC/gitd.rc    $PKG/etc/rc.d/gitd
+	install -m 0755 -D $SRC/gitd.rc $PKG/etc/rc.d/gitd
 
 	# remove junk
 	find $PKG \( -name perllocal.pod -o -name .packlist \) -delete
