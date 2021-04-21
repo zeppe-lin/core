@@ -2,10 +2,10 @@
 # URL:         http://www.iana.org/
 
 name=iana-etc
-version=20210305
+version=20210421
 release=1
-source=(services protocols update.sh)
+source=(services protocols)
 
 build() {
-	install -Dm0644 services protocols -t $PKG/etc
+	install -m 0644 -D services protocols -t $PKG/etc
 }
