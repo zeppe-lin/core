@@ -39,6 +39,6 @@ build() {
 	install -d $PKG/lib/{firmware,udev/devices/{pts,shm}}
 	install -d $PKG/{lib,sbin,run}
 
-	install -m0755 $SRC/start_udev    $PKG/sbin
-	install -m0644 $SRC/81-fuse.rules $PKG/lib/udev/rules.d
+	install -m 0755 $SRC/start_udev    $PKG/sbin
+	install -m 0644 $SRC/81-fuse.rules $PKG/lib/udev/rules.d
 }

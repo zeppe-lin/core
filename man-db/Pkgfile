@@ -26,8 +26,7 @@ build() {
 	make DESTDIR=$PKG install
 
 	install -d $PKG/var/cache/man
-	install -Dm0755 -o root -g root $SRC/mandb.cron \
-		$PKG/etc/cron/daily/mandb
+	install -m 0755 -D $SRC/mandb.cron $PKG/etc/cron/daily/mandb
 
 	rm -r $PKG/usr/share/doc
 }

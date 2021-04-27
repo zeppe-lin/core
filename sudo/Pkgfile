@@ -24,7 +24,7 @@ build() {
 	make DESTDIR=$PKG install
 
 	# PAM service file
-	install -Dm0644 $SRC/$name.pam $PKG/etc/pam.d/$name
+	install -m 0644 -D $SRC/$name.pam $PKG/etc/pam.d/$name
 
 	rm -r $PKG/usr/share/doc
 }

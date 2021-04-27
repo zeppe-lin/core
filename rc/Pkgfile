@@ -17,14 +17,14 @@ source=(Pkgfile
 build() {
 	install -d $PKG/etc/rc.d
 
-	install -m0755 rc.boot      $PKG/etc
-	install -m0644 rc.conf      $PKG/etc
-	install -m0755 rc.fix       $PKG/etc
-	install -m0755 rc.local     $PKG/etc
-	install -m0755 rc.modules   $PKG/etc
-	install -m0755 rc.multi     $PKG/etc
-	install -m0755 rc.shutdown  $PKG/etc
-	install -m0755 rc.single    $PKG/etc
+	install -m 0755 rc.boot      $PKG/etc
+	install -m 0644 rc.conf      $PKG/etc
+	install -m 0755 rc.fix       $PKG/etc
+	install -m 0755 rc.local     $PKG/etc
+	install -m 0755 rc.modules   $PKG/etc
+	install -m 0755 rc.multi     $PKG/etc
+	install -m 0755 rc.shutdown  $PKG/etc
+	install -m 0755 rc.single    $PKG/etc
 
 	install -d \
 		$PKG/var/log \

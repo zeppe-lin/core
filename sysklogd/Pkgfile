@@ -19,10 +19,10 @@ build() {
 	make V=1
 	make DESTDIR=$PKG install
 
-	install -Dm0755 $SRC/rotatelog   $PKG/usr/sbin/rotatelog
-	install -Dm0755 $SRC/syslog.cron $PKG/etc/cron/weekly/syslog
-	install -Dm0755 $SRC/sysklogd.rc $PKG/etc/rc.d/sysklogd
-	install -Dm0644 $SRC/syslog.conf $PKG/etc/syslog.conf
+	install -m 0755 -D $SRC/rotatelog   $PKG/usr/sbin/rotatelog
+	install -m 0755 -D $SRC/syslog.cron $PKG/etc/cron/weekly/syslog
+	install -m 0755 -D $SRC/sysklogd.rc $PKG/etc/rc.d/sysklogd
+	install -m 0644 -D $SRC/syslog.conf $PKG/etc/syslog.conf
 
 	install -d $PKG/var/log $PKG/etc/syslog.d
 

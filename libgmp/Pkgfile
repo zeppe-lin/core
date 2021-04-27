@@ -19,7 +19,7 @@ build() {
 	make DESTDIR=$PKG install
 
 	mv $PKG/usr/include/gmp{,-64}.h
-	install -m0644 $SRC/gmp.h $PKG/usr/include/
+	install -m 0644 $SRC/gmp.h $PKG/usr/include/
 
 	rm -r $PKG/usr/share
 }

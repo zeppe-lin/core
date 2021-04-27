@@ -19,6 +19,6 @@ build() {
 	make V=1
 	make DESTDIR=$PKG install
 
-	install -Dm0755 $SRC/mlocate.cron  $PKG/etc/cron/daily/mlocate
-	install -Dm0644 $SRC/updatedb.conf $PKG/etc
+	install -m 0755 -D $SRC/mlocate.cron  $PKG/etc/cron/daily/mlocate
+	install -m 0644 -D $SRC/updatedb.conf $PKG/etc
 }

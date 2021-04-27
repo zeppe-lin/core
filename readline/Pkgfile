@@ -25,7 +25,7 @@ build() {
 	ln -sf ../../lib/libreadline.so.${version:0:3} \
 		$PKG/usr/lib/libreadline.so
 
-	install -Dm0644 $SRC/inputrc $PKG/etc/inputrc
+	install -m 0644 -D $SRC/inputrc $PKG/etc/inputrc
 
 	rm -r $PKG/usr/share/{doc,info}
 }

@@ -31,7 +31,7 @@ build() {
 	ln -sf ../../lib/$(readlink $PKG/lib/libprocps.so.8) \
 		$PKG/usr/lib/libprocps.so
 
-	install -Dm0644 $SRC/sysctl.conf -t $PKG/etc
+	install -m 0644 -D $SRC/sysctl.conf -t $PKG/etc
 
 	# remove localized man pages
 	(cd $PKG/usr/share/man;

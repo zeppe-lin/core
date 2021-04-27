@@ -35,8 +35,8 @@ build() {
 	mv $PKG/usr/bin/login    $PKG/bin/login
 	mv $PKG/usr/sbin/nologin $PKG/sbin
 
-	install -Dm0644 $SRC/login.defs  -t $PKG/etc
-	install -Dm0755 $SRC/pwck        -t $PKG/etc/cron/daily
+	install -m 0644 -D $SRC/login.defs  -t $PKG/etc
+	install -m 0755 -D $SRC/pwck        -t $PKG/etc/cron/daily
 
 	touch $PKG/var/log/lastlog
 	touch $PKG/var/log/faillog

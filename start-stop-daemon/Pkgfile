@@ -6,10 +6,10 @@ version=20210109
 release=1
 source=(start-stop-daemon.c start-stop-daemon.pod crux-patch.diff makefile)
 
-build () {
+build() {
 	patch -p1 -i crux-patch.diff
 
 	make
-	install -Dm0755 $name    -t $PKG/sbin
-	install -Dm0644 $name.8  -t $PKG/usr/share/man/man8
+	install -m 0755 -D $name   -t $PKG/sbin
+	install -m 0644 -D $name.8 -t $PKG/usr/share/man/man8
 }

@@ -24,7 +24,7 @@ build() {
 	make V=1
 	make DESTDIR=$PKG install
 
-	install -Dm0644 $SRC/wgetrc $PKG/etc/wgetrc
+	install -m 0644 -D $SRC/wgetrc $PKG/etc/wgetrc
 
 	sed -i 's:/usr/local/etc:/etc:g' $PKG/usr/share/man/man1/wget.1
 

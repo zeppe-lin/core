@@ -45,12 +45,12 @@ build() {
     ln -s spool/mail $PKG/var/mail
     install -d $PKG/home
 
-    install -d -m 1777 $PKG/tmp
-    install -d -m 0750 $PKG/root
-    install -d -m 1777 $PKG/var/lock
-    install -d -m 1777 $PKG/var/spool/mail
-    install -d -m 1777 $PKG/var/tmp
-    install -d -m 1777 $PKG/dev/shm
+    install -m 1777 -d $PKG/tmp
+    install -m 0750 -d $PKG/root
+    install -m 1777 -d $PKG/var/lock
+    install -m 1777 -d $PKG/var/spool/mail
+    install -m 1777 -d $PKG/var/tmp
+    install -m 1777 -d $PKG/dev/shm
 
     # /dev
     mknod $PKG/dev/console c 5 1
