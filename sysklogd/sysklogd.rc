@@ -1,18 +1,16 @@
-#!/bin/sh
+#!/bin/sh -e
 #
 # /etc/rc.d/sysklogd: start/stop syslogd(8) daemon
 #
+
+PIDFILE=/var/run/syslogd.pid
 
 case $1 in
 start)
 	/usr/sbin/syslogd -ss
 	;;
 stop)
-	if [ -f /var/run/syslogd.pid ]; then
-		kill $(< /var/run/syslogd.pid)
-	else
-		killall -q /usr/sbin/syslogd
-	fi
+	[ -f $PIDFILE ] && kill $(cat $PIDFILE)
 	;;
 restart)
 	$0 stop

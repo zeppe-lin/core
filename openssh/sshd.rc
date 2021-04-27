@@ -3,6 +3,8 @@
 # /etc/rc.d/sshd: start/stop sshd(8) daemon
 #
 
+PIDFILE=/var/run/sshd.pid
+
 case $1 in
 start)
 	[ -f /etc/ssh/ssh_host_rsa_key ] || \
@@ -20,12 +22,7 @@ start)
 	/usr/sbin/sshd
 	;;
 stop)
-	if [ -f /var/run/sshd.pid ]; then
-		kill $(< /var/run/sshd.pid)
-		rm -f /var/run/sshd.pid
-	else
-		killall -q /usr/sbin/sshd
-	fi
+	[ -f $PIDFILE ] && kill $(cat $PIDFILE)
 	;;
 restart)
 	$0 stop

@@ -3,12 +3,14 @@
 # /etc/rc.d/inetd: start/stop inetd(8) daemon
 #
 
+PIDFILE=/var/run/inetd.pid
+
 case $1 in
 start)
 	/usr/sbin/inetd
 	;;
 stop)
-	killall -q /usr/sbin/inetd
+	[ -f $PIDFILE ] && kill $(cat $PIDFILE)
 	;;
 restart)
 	$0 stop

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 #
 # /etc/rc.d/lo: start/stop loopback interface
 #
