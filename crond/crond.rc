@@ -3,14 +3,14 @@
 # /etc/rc.d/crond: start/stop crond(8) daemon
 #
 
+PIDFILE=/var/run/crond.pid
+
 case $1 in
 start)
 	/usr/sbin/crond
 	;;
 stop)
-	if [ -f /var/run/crond.pid ]; then
-		kill $(< /var/run/crond.pid)
-	fi
+	[ -f $PIDFILE ] && kill $(cat $PIDFILE)
 	;;
 restart)
 	$0 stop
