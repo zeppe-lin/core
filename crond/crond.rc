@@ -10,8 +10,6 @@ start)
 stop)
 	if [ -f /var/run/crond.pid ]; then
 		kill $(< /var/run/crond.pid)
-	else
-		killall -q /usr/sbin/crond
 	fi
 	;;
 restart)
