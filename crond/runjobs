@@ -1,18 +1,18 @@
-#!/bin/bash
+#!/bin/sh
 #
 # /usr/bin/runjobs: run all executables in specified directory
 #
 
-if [ "$1" = "" ]; then
+if [ -z "$1" ]; then
 	echo "usage: $0 <dir>"
 	exit 1
 fi
 
-cd $1 || exit 1
+cd "$1" || exit 1
 
 for file in ./*; do
-	if [ -f $file ] && [ -x $file ]; then
-		nice -n 19 $file
+	if [ -f "$file" ] && [ -x "$file" ]; then
+		nice -n 19 "$file"
 	fi
 done
 
