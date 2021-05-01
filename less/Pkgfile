@@ -3,7 +3,7 @@
 # Depends on:  libpcre ncurses
 
 name=less
-version=583
+version=584
 release=1
 source=(http://www.greenwoodsoftware.com/less/$name-$version.tar.gz
 	filter)
