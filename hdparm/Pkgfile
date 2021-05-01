@@ -2,7 +2,7 @@
 # URL:         https://sourceforge.net/projects/hdparm/
 
 name=hdparm
-version=9.60
+version=9.61
 release=1
 source=(https://downloads.sourceforge.net/project/$name/$name/$name-$version.tar.gz)
 
