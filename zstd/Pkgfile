@@ -3,7 +3,7 @@
 # Depends on:  xz zlib
 
 name=zstd
-version=1.4.9
+version=1.5.0
 release=1
 source=(https://github.com/facebook/zstd/archive/v$version/$name-v$version.tar.gz)
 
