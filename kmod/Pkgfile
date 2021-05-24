@@ -2,7 +2,7 @@
 # URL:         http://git.kernel.org/?p=utils/kernel/kmod/kmod.git
 
 name=kmod
-version=28
+version=29
 release=1
 source=(https://www.kernel.org/pub/linux/utils/kernel/$name/$name-$version.tar.xz)
 
