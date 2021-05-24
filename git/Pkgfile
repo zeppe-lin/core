@@ -1,16 +1,31 @@
 # Description: Directory content manager
 # URL:         https://git-scm.com
 # Depends on:  curl expat
-# Optional:    tk
 
 name=git
 version=2.31.1
 release=1
-source=(https://www.kernel.org/pub/software/scm/git/git-{,manpages-}$version.tar.xz \
+source=(https://www.kernel.org/pub/software/scm/git/git-{,manpages-}$version.tar.xz
+	fix-t4219-with-sticky-bit.patch
 	gitd.rc)
 
 build() {
 	cd $name-$version
+
+	patch -p1 -i $SRC/fix-t4219-with-sticky-bit.patch
+	sed -i -e '1s@python\|python2@python3@' \
+		contrib/hooks/multimail/git_multimail.py \
+		contrib/hooks/multimail/migrate-mailhook-config \
+		contrib/hooks/multimail/post-receive.example
+
+	cat >> config.mak <<-EOF
+		NO_GETTEXT=YesPlease
+		NO_SVN_TESTS=YesPlease
+		NO_TCLTK=YesPlease
+		CFLAGS=$CFLAGS
+		ICONV_OMITS_BOM=Yes
+		PYTHON_PATH=/usr/bin/python3
+	EOF
 
 	P5LIB=$(/usr/bin/perl \
 		-MConfig -e'print $Config::Config{'installsitelib'}')
