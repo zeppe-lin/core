@@ -3,7 +3,7 @@
 # Depends on:  libarchive
 
 name=pkgutils
-version=5.40.7-98fe961
+version=5.40.7-04b5795
 release=1
 source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz)
 
