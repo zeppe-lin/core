@@ -2,14 +2,13 @@
 # URL:         https://sourceforge.net/projects/hdparm/
 
 name=hdparm
-version=9.61
+version=9.62
 release=1
 source=(https://downloads.sourceforge.net/project/$name/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
 
-	# fix flags
 	sed \
 		-e "/^CFLAGS :=/s/-O2//g"   \
 		-e "/^STRIP/s/strip/true/g" \
