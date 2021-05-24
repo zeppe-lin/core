@@ -3,13 +3,16 @@
 # Depends on:  ncurses
 
 name=readline
-version=8.1
+version=8.1.1
 release=1
-source=(http://ftpmirror.gnu.org/gnu/$name/$name-${version:0:3}.tar.gz
+source=(http://ftpmirror.gnu.org/gnu/$name/$name-8.1.tar.gz
+	http://ftpmirror.gnu.org/gnu/$name/$name-8.1-patches/${name}81-001
 	inputrc)
 
 build() {
 	cd $name-${version:0:3}
+
+	for p in $SRC/${name}81-???; do patch -p0 -i $p; done
 
 	./configure --prefix=/usr
 
