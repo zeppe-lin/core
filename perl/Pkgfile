@@ -1,6 +1,6 @@
 # Description: Perl programming language
 # URL:         https://www.perl.org/
-# Depends on:  db gdbm libnsl
+# Depends on:  db gdbm libnsl libtirpc
 
 name=perl
 version=5.34.0
