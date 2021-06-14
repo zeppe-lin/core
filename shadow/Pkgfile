@@ -1,6 +1,6 @@
 # Description: Shadow password file utilities
 # URL:         https://github.com/shadow-maint/shadow/
-# Depends on:  acl linux-pam
+# Depends on:  acl attr linux-pam
 
 name=shadow
 version=4.8.1
@@ -35,8 +35,8 @@ build() {
 	mv $PKG/usr/bin/login    $PKG/bin/login
 	mv $PKG/usr/sbin/nologin $PKG/sbin
 
-	install -m 0644 -D $SRC/login.defs  -t $PKG/etc
-	install -m 0755 -D $SRC/pwck        -t $PKG/etc/cron/daily
+	install -m 0644 -D -t $PKG/etc             $SRC/login.defs
+	install -m 0755 -D -t $PKG/etc/cron/daily  $SRC/pwck
 
 	touch $PKG/var/log/lastlog
 	touch $PKG/var/log/faillog
