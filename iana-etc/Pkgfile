@@ -7,5 +7,5 @@ release=1
 source=(services protocols)
 
 build() {
-	install -m 0644 -D services protocols -t $PKG/etc
+	install -m 0644 -D -t $PKG/etc services protocols
 }
