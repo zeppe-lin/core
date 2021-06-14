@@ -1,5 +1,6 @@
 # Description: Advanced package management tool
 # URL:         https://github.com/zeppe-lin/pkgman
+# Depends on:  gcc
 
 name=pkgman
 version=6.0-c36056b
