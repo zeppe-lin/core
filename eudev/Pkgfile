@@ -1,6 +1,6 @@
 # Description: Userspace device management daemon
 # URL:         https://wiki.gentoo.org/wiki/Project:Eudev
-# Depends on:  kmod util-linux
+# Depends on:  kmod
 
 name=eudev
 version=3.2.10

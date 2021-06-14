@@ -43,7 +43,6 @@ drwxr-xr-x	root/root	lib/udev/rules.d/
 -rw-r--r--	root/root	lib/udev/rules.d/60-persistent-alsa.rules
 -rw-r--r--	root/root	lib/udev/rules.d/60-persistent-input.rules
 -rw-r--r--	root/root	lib/udev/rules.d/60-persistent-storage-tape.rules
--rw-r--r--	root/root	lib/udev/rules.d/60-persistent-storage.rules
 -rw-r--r--	root/root	lib/udev/rules.d/60-persistent-v4l.rules
 -rw-r--r--	root/root	lib/udev/rules.d/60-sensor.rules
 -rw-r--r--	root/root	lib/udev/rules.d/60-serial.rules
