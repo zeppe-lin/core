@@ -3,54 +3,51 @@
 
 name=filesystem
 version=3.6
-release=1
-source=(issue motd shells group passwd shadow securetty fstab
-	mime.types)
+release=2
+source=(issue motd shells group passwd shadow securetty fstab mime.types)
 
 build() {
     # Directory structure
-    install -d $PKG/bin
-    install -d $PKG/sbin
-    install -d $PKG/boot
-    install -d $PKG/dev
-    install -d $PKG/dev/pts
-    install -d $PKG/proc
-    install -d $PKG/sys
-    install -d $PKG/etc
-    install -d $PKG/mnt
-    install -d $PKG/run
-    install -d $PKG/lib{,32}
+    mkdir $PKG/bin
+    mkdir $PKG/sbin
+    mkdir $PKG/boot
+    mkdir $PKG/dev
+    mkdir $PKG/dev/pts
+    mkdir $PKG/proc
+    mkdir $PKG/sys
+    mkdir $PKG/etc
+    mkdir $PKG/mnt
+    mkdir $PKG/run
+    mkdir $PKG/lib{,32}
     ln -s lib $PKG/lib64
-    install -d $PKG/lib/modules
-    install -d $PKG/opt
-    install -d $PKG/opt/bin
-    install -d $PKG/opt/sbin
-    install -d $PKG/usr
-    install -d $PKG/usr/{bin,include,lib{,32},sbin,share,src}
+    mkdir $PKG/lib/modules
+    mkdir $PKG/opt
+    mkdir $PKG/usr
+    mkdir $PKG/usr/{bin,include,lib{,32},sbin,share,src}
     ln -s lib $PKG/usr/lib64
-    install -d -p $PKG/usr/share/man/man{1,2,3,4,5,6,7,8}
+    mkdir -p $PKG/usr/share/man/man{1,2,3,4,5,6,7,8}
     ln -s ../var $PKG/usr/var
-    install -d $PKG/var
-    install -d $PKG/var/cache
-    install -d $PKG/var/lib
-    install -d $PKG/var/lib/pkg
-    install -d $PKG/var/log
-    install -d $PKG/var/log/old
-    install -d $PKG/var/run
+    mkdir $PKG/var
+    mkdir $PKG/var/cache
+    mkdir $PKG/var/lib
+    mkdir $PKG/var/lib/pkg
+    mkdir $PKG/var/log
+    mkdir $PKG/var/log/old
+    mkdir $PKG/var/run
     touch $PKG/var/run/utmp
-    install -d $PKG/var/spool
-    install -d $PKG/var/ftp
-    install -d $PKG/var/www
-    install -d $PKG/var/empty
+    mkdir $PKG/var/spool
+    mkdir $PKG/var/ftp
+    mkdir $PKG/var/www
+    mkdir $PKG/var/empty
     ln -s spool/mail $PKG/var/mail
-    install -d $PKG/home
+    mkdir $PKG/home
 
-    install -m 1777 -d $PKG/tmp
-    install -m 0750 -d $PKG/root
-    install -m 1777 -d $PKG/var/lock
-    install -m 1777 -d $PKG/var/spool/mail
-    install -m 1777 -d $PKG/var/tmp
-    install -m 1777 -d $PKG/dev/shm
+    mkdir -m 1777 $PKG/tmp
+    mkdir -m 0750 $PKG/root
+    mkdir -m 1777 $PKG/var/lock
+    mkdir -m 1777 $PKG/var/spool/mail
+    mkdir -m 1777 $PKG/var/tmp
+    mkdir -m 1777 $PKG/dev/shm
 
     # /dev
     mknod $PKG/dev/console c 5 1
