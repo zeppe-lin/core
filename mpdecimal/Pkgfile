@@ -1,5 +1,6 @@
 # Description: Arbitrary precision decimal floating point arithmetic
 # URL:         http://www.bytereef.org/mpdecimal/index.html
+# Depends on:  gcc
 
 name=mpdecimal
 version=2.5.1
