@@ -1,6 +1,6 @@
 # Description: Sudo (superuser do)
 # URL:         https://www.sudo.ws/sudo/
-# Depends on:  linux-pam zlib
+# Depends on:  linux-pam openssl zlib
 
 name=sudo
 version=1.9.7
