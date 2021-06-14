@@ -1,6 +1,6 @@
 # Description: Arbitrary precision numeric processing language
 # URL:         http://www.gnu.org/software/bc/bc.html
-# Depends on:  flex readline
+# Depends on:  flex ncurses readline
 
 name=bc
 version=1.07.1
