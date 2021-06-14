@@ -1,6 +1,6 @@
 # Description: Highly configurable text editor
 # URL:         http://www.vim.org/
-# Depends on:  acl ncurses
+# Depends on:  acl attr ncurses
 
 name=vim
 version=8.2.2879
