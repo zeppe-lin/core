@@ -1,5 +1,6 @@
 # Description: Perl Compatible Regular Expressions
 # URL:         http://www.pcre.org
+# Depends on:  gcc
 
 name=libpcre
 version=8.44
