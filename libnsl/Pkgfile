@@ -10,10 +10,10 @@ source=(https://github.com/thkukuk/$name/releases/download/v$version/$name-$vers
 build() {
 	cd $name-$version
 
-	autoreconf -fi
-
+	autoreconf -f
 	./configure \
-		--prefix=/usr
+		--prefix=/usr \
+		--disable-nls \
 
 	make V=1
 	make DESTDIR=$PKG install
