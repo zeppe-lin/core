@@ -1,5 +1,6 @@
 # Description: Free library for arbitrary precision arithmetic
 # URL:         https://gmplib.org/
+# Depends on:  gcc
 
 name=libgmp
 version=6.2.1
