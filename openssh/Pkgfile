@@ -37,6 +37,6 @@ build() {
 	# enable PAM
 	sed '/^#UsePAM/aUsePAM yes' -i $PKG/etc/ssh/sshd_config
 
-	install -m 0755 -D contrib/ssh-copy-id   -t $PKG/usr/bin
-	install -m 0644 -D contrib/ssh-copy-id.1 -t $PKG/usr/share/man/man1
+	install -m 0755 -D -t $PKG/usr/bin            contrib/ssh-copy-id
+	install -m 0644 -D -t $PKG/usr/share/man/man1 contrib/ssh-copy-id.1
 }
