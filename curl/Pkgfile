@@ -1,6 +1,6 @@
 # Description: Client that groks URLs
 # URL:         https://curl.haxx.se
-# Depends on:  openssl zstd
+# Depends on:  openssl zlib zstd
 
 name=curl
 version=7.76.1
