@@ -1,6 +1,6 @@
 # Description: GNU tar
 # URL:         http://www.gnu.org/software/tar/tar.html
-# Depends on:  acl
+# Depends on:  acl attr
 
 name=tar
 version=1.34
