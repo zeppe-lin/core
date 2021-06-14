@@ -1,6 +1,6 @@
 # Description: Streams EDitor
 # URL:         http://www.gnu.org/software/sed//sed.html
-# Depends on:  acl
+# Depends on:  acl attr
 
 name=sed
 version=4.8
