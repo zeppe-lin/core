@@ -1,0 +1,56 @@
+# Description: UNIX Base
+# URL:         https://github.com/zeppe-lin/sbase
+
+name=sbase
+version=0.1-cd2838d
+release=1
+source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz
+	xinstall_p_option.patch)
+
+build() {
+	cd $name-${version##*-}*
+
+	patch -p1 -i $SRC/xinstall_p_option.patch
+
+	make V=1
+
+	install -d $PKG/bin $PKG/sbin $PKG/usr/bin $PKG/usr/sbin \
+		$PKG/usr/share/man/man1 $PKG/usr/share/man/man8
+
+	# FIXME cron -> crond, 1 -> 8
+
+	# /usr/bin
+	# cmp -> diffutils
+	# find -> findutils
+	# getconf -> glibc
+	# strings -> binutils
+	# xargs -> findutils
+	for p in basename cal chroot cksum cols comm cut dirname du \
+		env expand expr flock fold head join link logger \
+		logname md5sum mkfifo mktemp nice nl nohup od paste \
+		pathchk printenv printf renice rev seq setsid sha1sum \
+		sha224sum sha256sum sha384sum sha512-224sum sha512-256sum \
+		sha512sum sort split sponge tail tee test tftp time tr \
+		tsort tty unexpand uniq unlink uudecode uuencode wc \
+		which whoami yes \
+	; do
+		install -m 755 $p    $PKG/usr/bin/$p
+		install -m 644 $p.1  $PKG/usr/share/man/man1/$p.1
+	done
+	install -m 755 xinstall   $PKG/usr/bin/install
+	install -m 644 xinstall.1 $PKG/usr/share/man/man1/install.1
+	ln -f /usr/bin/test [
+
+	# /bin
+	# ed -> ed
+	# grep -> grep
+	# sed -> sed
+	# tar -> tar
+	for p in cat chgrp chmod chown cp date dd echo false \
+		hostname kill ln ls mkdir mknod mv pwd readlink \
+		rm rmdir sleep sync touch true uname \
+	; do
+		install -m 755 $p    $PKG/bin/$p
+		install -m 644 $p.1  $PKG/usr/share/man/man1/$p.1
+	done
+}
