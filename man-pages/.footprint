@@ -96,7 +96,6 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/mtrace.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/pldd.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/sprof.1.gz
--rw-r--r--	root/root	usr/share/man/man1/time.1.gz
 drwxr-xr-x	root/root	usr/share/man/man1p/
 -rw-r--r--	root/root	usr/share/man/man1p/admin.1p.gz
 -rw-r--r--	root/root	usr/share/man/man1p/alias.1p.gz

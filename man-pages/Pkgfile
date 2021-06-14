@@ -3,7 +3,7 @@
 
 name=man-pages
 version=5.11_2017-a
-release=1
+release=2
 source=(http://www.kernel.org/pub/linux/docs/$name/$name-5.11.tar.xz
 	http://www.kernel.org/pub/linux/docs/$name/$name-posix/$name-posix-2017-a.tar.xz)
 
@@ -18,6 +18,9 @@ build() {
 	cd $SRC/$name-posix-2017
 
 	make DESTDIR=$PKG install
+
+	# already in sbase
+	rm $PKG/usr/share/man/man1/time.1*
 
 	touch $PKG/usr/share/man/whatis
 }
