@@ -1,0 +1,17 @@
+# Description: GNU getopt
+# URL:         https://github.com/zeppe-lin/getopt
+
+name=getopt
+version=0.1-a9c79c7
+release=1
+source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz)
+
+build() {
+	cd $name-${version##*-}*
+
+	gcc getopt.c strutils.c -o getopt \
+		-DPACKAGE_STRING -DHAVE_FSYNC -DHAVE_NANOSLEEP -I .
+
+	install -m 755 -D getopt   $PKG/usr/bin/getopt
+	install -m 644 -D getopt.1 $PKG/usr/share/man/man1/getopt.1
+}
