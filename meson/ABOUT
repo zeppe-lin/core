@@ -1,0 +1,8 @@
+ABOUT meson
+
+  This package provides a software tool for automating the building
+  of software. The main goal for Meson is to minimize the amount
+  of time that software developers need to spend configuring their
+  build system.
+
+End of file.
