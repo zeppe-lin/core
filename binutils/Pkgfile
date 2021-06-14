@@ -1,6 +1,6 @@
 # Description: GNU binary utilities
 # URL:         http://sources.redhat.com/binutils
-# Depends on:  flex zlib
+# Depends on:  flex gcc zlib
 
 name=binutils
 version=2.36.1
