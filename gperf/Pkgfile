@@ -1,5 +1,6 @@
 # Description: Perfect hash function generator
 # URL:         http://www.gnu.org/software/gperf/
+# Depends on:  gcc
 
 name=gperf
 version=3.1
