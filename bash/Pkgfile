@@ -1,6 +1,6 @@
 # Description: GNU Bourne Again Shell
 # URL:         https://tiswww.case.edu/php/chet/bash/bashtop.html
-# Depends on:  readline
+# Depends on:  ncurses readline
 
 name=bash
 version=5.1.8
