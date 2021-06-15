@@ -1,6 +1,5 @@
 # Description: Generates automatic source code configuration scripts
 # URL:         http://www.gnu.org/software/autoconf
-# Depends on:  gawk m4 perl
 
 name=autoconf
 version=2.71

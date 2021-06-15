@@ -1,6 +1,5 @@
 # Description: Berkeley DB embedded database system
 # URL:         http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/
-# Depends on:  gcc
 
 name=db
 version=5.3.28

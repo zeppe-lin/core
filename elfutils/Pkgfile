@@ -1,6 +1,6 @@
 # Description: Utilities to handle ELF object files
 # URL:         https://sourceware.org/elfutils
-# Depends on:  bzip2 gcc xz zlib zstd
+# Depends on:  bzip2 zstd
 
 name=elfutils
 version=0.185

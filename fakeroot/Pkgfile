@@ -1,6 +1,5 @@
 # Description: Gives a fake root environment
 # URL:         http://packages.debian.org/unstable/utils/fakeroot
-# Depends on:  getopt
 
 name=fakeroot
 version=1.25.3

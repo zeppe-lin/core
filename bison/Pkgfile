@@ -1,6 +1,5 @@
 # Description: GNU yacc(1) replacement
 # URL:         https://www.gnu.org/software/bison
-# Depends on:  m4
 
 name=bison
 version=3.7.6

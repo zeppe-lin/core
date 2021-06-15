@@ -1,6 +1,6 @@
 # Description: SQL database engine
 # URL:         https://www.sqlite.org/
-# Depends on:  ncurses readline zlib
+# Depends on:  readline zlib
 
 name=sqlite3
 version=3.35.5

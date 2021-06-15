@@ -1,6 +1,5 @@
 # Description: GNU troff text-formatting system
 # URL:         http://www.gnu.org/software/groff/groff.html
-# Depends on:  gcc
 
 name=groff
 version=1.22.4

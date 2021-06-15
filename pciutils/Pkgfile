@@ -1,6 +1,6 @@
 # Description: PCI bus related utilities
 # URL:         http://mj.ucw.cz/pciutils.shtml
-# Depends on:  eudev kmod
+# Depends on:  eudev
 
 name=pciutils
 version=3.7.0

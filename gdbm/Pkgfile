@@ -1,6 +1,6 @@
 # Description: GNU database library for C
 # URL:         http://www.gnu.org/software/gdbm/gdbm.html
-# Depends on:  ncurses readline
+# Depends on:  readline
 
 name=gdbm
 version=1.19

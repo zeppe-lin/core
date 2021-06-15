@@ -1,6 +1,6 @@
 # Description: Library to create and read several archive formats
 # URL:         http://www.libarchive.org/
-# Depends on:  acl attr bzip2 xz zlib zstd
+# Depends on:  acl bzip2 zstd
 
 name=libarchive
 version=3.5.1

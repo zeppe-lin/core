@@ -1,6 +1,6 @@
 # Description: pciutils-like utilities for USB
 # URL:         https://github.com/gregkh/usbutils
-# Depends on:  evdev libusb
+# Depends on:  libusb
 
 name=usbutils
 version=013

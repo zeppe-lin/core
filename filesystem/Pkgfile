@@ -7,61 +7,61 @@ release=2
 source=(issue motd shells group passwd shadow securetty fstab mime.types)
 
 build() {
-    # Directory structure
-    mkdir $PKG/bin
-    mkdir $PKG/sbin
-    mkdir $PKG/boot
-    mkdir $PKG/dev
-    mkdir $PKG/dev/pts
-    mkdir $PKG/proc
-    mkdir $PKG/sys
-    mkdir $PKG/etc
-    mkdir $PKG/mnt
-    mkdir $PKG/run
-    mkdir $PKG/lib{,32}
-    ln -s lib $PKG/lib64
-    mkdir $PKG/lib/modules
-    mkdir $PKG/opt
-    mkdir $PKG/usr
-    mkdir $PKG/usr/{bin,include,lib{,32},sbin,share,src}
-    ln -s lib $PKG/usr/lib64
-    mkdir -p $PKG/usr/share/man/man{1,2,3,4,5,6,7,8}
-    ln -s ../var $PKG/usr/var
-    mkdir $PKG/var
-    mkdir $PKG/var/cache
-    mkdir $PKG/var/lib
-    mkdir $PKG/var/lib/pkg
-    mkdir $PKG/var/log
-    mkdir $PKG/var/log/old
-    mkdir $PKG/var/run
-    touch $PKG/var/run/utmp
-    mkdir $PKG/var/spool
-    mkdir $PKG/var/ftp
-    mkdir $PKG/var/www
-    mkdir $PKG/var/empty
-    ln -s spool/mail $PKG/var/mail
-    mkdir $PKG/home
+	# Directory structure
+	mkdir $PKG/bin
+	mkdir $PKG/sbin
+	mkdir $PKG/boot
+	mkdir $PKG/dev
+	mkdir $PKG/dev/pts
+	mkdir $PKG/proc
+	mkdir $PKG/sys
+	mkdir $PKG/etc
+	mkdir $PKG/mnt
+	mkdir $PKG/run
+	mkdir $PKG/lib{,32}
+	ln -s lib $PKG/lib64
+	mkdir $PKG/lib/modules
+	mkdir $PKG/opt
+	mkdir $PKG/usr
+	mkdir $PKG/usr/{bin,include,lib{,32},sbin,share,src}
+	ln -s lib $PKG/usr/lib64
+	mkdir -p $PKG/usr/share/man/man{1,2,3,4,5,6,7,8}
+	ln -s ../var $PKG/usr/var
+	mkdir $PKG/var
+	mkdir $PKG/var/cache
+	mkdir $PKG/var/lib
+	mkdir $PKG/var/lib/pkg
+	mkdir $PKG/var/log
+	mkdir $PKG/var/log/old
+	mkdir $PKG/var/run
+	touch $PKG/var/run/utmp
+	mkdir $PKG/var/spool
+	mkdir $PKG/var/ftp
+	mkdir $PKG/var/www
+	mkdir $PKG/var/empty
+	ln -s spool/mail $PKG/var/mail
+	mkdir $PKG/home
 
-    mkdir -m 1777 $PKG/tmp
-    mkdir -m 0750 $PKG/root
-    mkdir -m 1777 $PKG/var/lock
-    mkdir -m 1777 $PKG/var/spool/mail
-    mkdir -m 1777 $PKG/var/tmp
-    mkdir -m 1777 $PKG/dev/shm
+	mkdir -m 1777 $PKG/tmp
+	mkdir -m 0750 $PKG/root
+	mkdir -m 1777 $PKG/var/lock
+	mkdir -m 1777 $PKG/var/spool/mail
+	mkdir -m 1777 $PKG/var/tmp
+	mkdir -m 1777 $PKG/dev/shm
 
-    # /dev
-    mknod $PKG/dev/console c 5 1
-    chmod 0600 $PKG/dev/console
+	# /dev
+	mknod $PKG/dev/console c 5 1
+	chmod 0600 $PKG/dev/console
 
-    # /etc
-    install -m 0644 issue $PKG/etc
-    install -m 0644 motd $PKG/etc
-    install -m 0644 shells $PKG/etc
-    install -m 0644 group $PKG/etc
-    install -m 0644 passwd $PKG/etc
-    install -m 0640 shadow $PKG/etc
-    install -m 0644 securetty $PKG/etc
-    install -m 0644 fstab $PKG/etc
-    install -m 0644 mime.types $PKG/etc
-    ln -s /proc/self/mounts $PKG/etc/mtab
+	# /etc
+	install -m 0644 issue $PKG/etc
+	install -m 0644 motd $PKG/etc
+	install -m 0644 shells $PKG/etc
+	install -m 0644 group $PKG/etc
+	install -m 0644 passwd $PKG/etc
+	install -m 0640 shadow $PKG/etc
+	install -m 0644 securetty $PKG/etc
+	install -m 0644 fstab $PKG/etc
+	install -m 0644 mime.types $PKG/etc
+	ln -s /proc/self/mounts $PKG/etc/mtab
 }

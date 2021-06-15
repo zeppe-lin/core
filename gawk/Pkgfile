@@ -1,6 +1,6 @@
 # Description: GNU awk utility
 # URL:         http://www.gnu.org/software/gawk/gawk.html
-# Depends on:  libgmp libmpfr ncurses readline
+# Depends on:  libmpfr readline
 
 name=gawk
 version=5.1.0
