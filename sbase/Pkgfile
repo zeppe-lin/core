@@ -39,7 +39,7 @@ build() {
 	done
 	install -m 755 xinstall   $PKG/usr/bin/install
 	install -m 644 xinstall.1 $PKG/usr/share/man/man1/install.1
-	ln -f /usr/bin/test [
+	ln -s /usr/bin/test [
 
 	# /bin
 	# ed -> ed
