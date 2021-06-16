@@ -23,7 +23,7 @@ build() {
 	# lsusb -> usbutils
 	# passwd -> shadow
 	# su -> shadow
-	for p in eject fallocate free id mesg pagesize pidof pwdx stat \
+	for p in eject fallocate free id mesg pagesize pwdx stat \
 		truncate unshare uptime vtallow watch who \
 	; do
 		install -m 755 $p   $PKG/usr/bin/$p
@@ -58,7 +58,7 @@ build() {
 	# /bin
 	# lsmod -> kmod (link to /sbin/lsmod)
 	# respawn -> init
-	for p in df dmesg mountpoint ps \
+	for p in df dmesg mountpoint pidof ps \
 	; do
 		install -m 755 $p   $PKG/bin/$p
 		install -m 644 $p.1 $PKG/usr/share/man/man1/$p.1
