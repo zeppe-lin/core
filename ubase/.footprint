@@ -5,6 +5,7 @@ lrwxrwxrwx	root/root	bin/mount -> /sbin/mount
 -rwxr-xr-x	root/root	bin/mountpoint
 -rwxr-xr-x	root/root	bin/pidof
 -rwxr-xr-x	root/root	bin/ps
+-rwxr-xr-x	root/root	bin/stty
 lrwxrwxrwx	root/root	bin/umount -> /sbin/umount
 drwxr-xr-x	root/root	etc/
 -rw-r--r--	root/root	etc/sysctl.conf

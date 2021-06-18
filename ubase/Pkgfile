@@ -63,4 +63,8 @@ build() {
 		install -m 755 $p   $PKG/bin/$p
 		install -m 644 $p.1 $PKG/usr/share/man/man1/$p.1
 	done
+
+	# FIXME
+	# add man page
+	install -m 755 stty $PKG/bin/stty
 }
