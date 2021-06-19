@@ -1,12 +1,11 @@
 drwxr-xr-x	root/root	bin/
 -rwxr-xr-x	root/root	bin/df
 -rwxr-xr-x	root/root	bin/dmesg
-lrwxrwxrwx	root/root	bin/mount -> /sbin/mount
 -rwxr-xr-x	root/root	bin/mountpoint
 -rwxr-xr-x	root/root	bin/pidof
 -rwxr-xr-x	root/root	bin/ps
+-rwxr-xr-x	root/root	bin/respawn
 -rwxr-xr-x	root/root	bin/stty
-lrwxrwxrwx	root/root	bin/umount -> /sbin/umount
 drwxr-xr-x	root/root	etc/
 -rw-r--r--	root/root	etc/sysctl.conf
 drwxr-xr-x	root/root	sbin/
@@ -14,7 +13,10 @@ drwxr-xr-x	root/root	sbin/
 -rwxr-xr-x	root/root	sbin/ctrlaltdel
 -rwxr-xr-x	root/root	sbin/freeramdisk
 -rwxr-xr-x	root/root	sbin/fsfreeze
+-rwxr-xr-x	root/root	sbin/getty
+-rwxr-xr-x	root/root	sbin/halt
 -rwxr-xr-x	root/root	sbin/hwclock
+-rwxr-xr-x	root/root	sbin/killall5
 -rwxr-xr-x	root/root	sbin/mkswap
 -rwxr-xr-x	root/root	sbin/mount
 -rwxr-xr-x	root/root	sbin/pivot_root
@@ -59,6 +61,7 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/pidof.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/ps.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/pwdx.1.gz
+-rw-r--r--	root/root	usr/share/man/man1/respawn.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/stat.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/truncate.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/unshare.1.gz
@@ -71,7 +74,10 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/ctrlaltdel.8.gz
 -rw-r--r--	root/root	usr/share/man/man8/freeramdisk.8.gz
 -rw-r--r--	root/root	usr/share/man/man8/fsfreeze.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/getty.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/halt.8.gz
 -rw-r--r--	root/root	usr/share/man/man8/hwclock.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/killall5.8.gz
 -rw-r--r--	root/root	usr/share/man/man8/mkswap.8.gz
 -rw-r--r--	root/root	usr/share/man/man8/mount.8.gz
 -rw-r--r--	root/root	usr/share/man/man8/pivot_root.8.gz

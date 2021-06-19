@@ -2,7 +2,7 @@
 # URL:         https://github.com/zeppe-lin/ubase
 
 name=ubase
-version=0.1-502279b
+version=0.1-23e73bb
 release=1
 source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz
 	sysctl.conf)
@@ -15,50 +15,59 @@ build() {
 	install -d $PKG/bin $PKG/sbin $PKG/usr/bin $PKG/usr/sbin \
 		$PKG/usr/share/man/man1 $PKG/usr/share/man/man8
 
+	##############################################################
 	# /usr/bin
-	# chvt -> kbd
-	# clear -> ncurses
-	# lastlog -> shadow
-	# login -> shadow
-	# lsusb -> usbutils
-	# passwd -> shadow
-	# su -> shadow
+	##############################################################
+
+	# The following packages were skipped.
+	# chvt     -> kbd
+	# clear    -> ncurses
+	# lastlog  -> shadow
+	# login    -> shadow
+	# lsusb    -> usbutils
+	# passwd   -> shadow
+	# su       -> shadow
 	for p in eject fallocate free id mesg pagesize pwdx stat \
 		truncate unshare uptime vtallow watch who \
 	; do
 		install -m 755 $p   $PKG/usr/bin/$p
 		install -m 644 $p.1 $PKG/usr/share/man/man1/$p.1
 	done
+
 	# FIXME: add man page
 	install -m 755 last $PKG/usr/bin/last
 
-	# vmstat-> procps
 	# FIXME: add man page
 	install -m 755 vmstat $PKG/usr/bin/vmstat
 
+	##############################################################
 	# /sbin
-	# getty -> init
-	# halt -> init
-	# insmod -> kmod
-	# killall5 -> init
-	# lsmod -> kmod
-	# nologin -> shadow
-	# rmmod -> kmod
-	for p in blkdiscard ctrlaltdel freeramdisk fsfreeze hwclock \
-		mkswap mount pivot_root readahead swaplabel swapoff \
+	##############################################################
+
+	# The following packages were skipped:
+	# insmod    -> kmod
+	# lsmod     -> kmod
+	# nologin   -> shadow
+	# rmmod     -> kmod
+
+	for p in blkdiscard ctrlaltdel freeramdisk fsfreeze getty \
+		halt hwclock killall5 mkswap mount pivot_root \
+		readahead swaplabel swapoff \
 		swapon switch_root sysctl umount \
 	; do
 		install -m 755 $p   $PKG/sbin/$p
 		install -m 644 $p.8 $PKG/usr/share/man/man8/$p.8
 	done
-	ln -s /sbin/mount $PKG/bin/mount # FIXME check rc scripts
-	ln -s /sbin/umount $PKG/bin/umount
 	install -m 644 -D $SRC/sysctl.conf $PKG/etc/sysctl.conf
 
+	##############################################################
 	# /bin
+	##############################################################
+
+	# The following packages were skipped:
 	# lsmod -> kmod (link to /sbin/lsmod)
-	# respawn -> init
-	for p in df dmesg mountpoint pidof ps \
+
+	for p in df dmesg mountpoint pidof ps respawn \
 	; do
 		install -m 755 $p   $PKG/bin/$p
 		install -m 644 $p.1 $PKG/usr/share/man/man1/$p.1
