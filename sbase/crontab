@@ -1,0 +1,27 @@
+#
+# /etc/crontab: cron(1) clock daemon configuration
+#
+
+# +---------- minute        (0 - 59)
+# | +-------- hour          (0 - 23)
+# | | +------ day of month  (1 - 31)
+# | | | +---- month         (1 - 12)
+# | | | | +-- day of week   (0 - 6)
+# | | | | |
+# * * * * * command to execute
+
+
+# hourly
+0 * * * * /usr/bin/runjobs /etc/cron/hourly
+
+# daily
+0 0 * * * /usr/bin/runjobs /etc/cron/daily
+
+# weekly
+0 0 * * 0 /usr/bin/runjobs /etc/cron/weekly
+
+# monthly
+0 0 1 * * /usr/bin/runjobs /etc/cron/monthly
+
+
+# End of file

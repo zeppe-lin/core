@@ -1,0 +1,23 @@
+#!/bin/sh -e
+#
+# /etc/rc.d/cron: start/stop cron(1) clock daemon
+#
+
+PIDFILE=/var/run/cron.pid
+
+case $1 in
+start)
+	/usr/bin/cron
+	;;
+stop)
+	kill `cat $PIDFILE`
+	;;
+restart)
+	$0 stop ; sleep 2 ; $0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

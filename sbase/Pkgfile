@@ -1,15 +1,21 @@
-# Description: UNIX Base
+# Description: UNIX base utilities
 # URL:         https://github.com/zeppe-lin/sbase
 
 name=sbase
-version=0.1-cd2838d
+version=0.1-1f7d82e
 release=1
 source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz
+	cron.rc crontab runjobs
 	xinstall_p_option.patch)
 
 build() {
 	cd $name-${version##*-}*
 
+	# FIXME TODO
+	# Add the -p option to xinstall utility that does nothing.
+	# The fact is, a lot of software in install scripts require
+	# this option. It is easier to patch xinstall than each
+	# makefile requiring it.
 	patch -p1 -i $SRC/xinstall_p_option.patch
 
 	make V=1
@@ -17,15 +23,20 @@ build() {
 	install -d $PKG/bin $PKG/sbin $PKG/usr/bin $PKG/usr/sbin \
 		$PKG/usr/share/man/man1 $PKG/usr/share/man/man8
 
-	# FIXME cron -> crond, 1 -> 8
-
+	##############################################################
 	# /usr/bin
-	# cmp -> diffutils
-	# find -> findutils
-	# getconf -> glibc
-	# strings -> binutils
-	# xargs -> findutils
-	for p in basename cal chroot cksum cols comm cut dirname du \
+	##############################################################
+
+	# The following packages were skipped, because in sbase, they
+	# are little feeble, and there are a lot of programs depend on
+	# this missing functionality.
+	#
+	# cmp      -> diffutils
+	# find     -> findutils
+	# getconf  -> glibc
+	# strings  -> binutils
+	# xargs    -> findutils
+	for p in basename cal chroot cksum cols comm cron cut dirname du \
 		env expand expr flock fold head join link logger \
 		logname md5sum mkfifo mktemp nice nl nohup od paste \
 		pathchk printenv printf renice rev seq setsid sha1sum \
@@ -40,12 +51,21 @@ build() {
 	install -m 755 xinstall   $PKG/usr/bin/install
 	install -m 644 xinstall.1 $PKG/usr/share/man/man1/install.1
 	ln -s /usr/bin/test [
+	install -m 600 -D $SRC/crontab $PKG/etc/crontab
+	install -m 755 -D $SRC/cron.rc $PKG/etc/rc.d/cron
+	install -m 755 -D $SRC/runjobs $PKG/usr/bin/runjobs
 
+	##############################################################
 	# /bin
-	# ed -> ed
-	# grep -> grep
-	# sed -> sed
-	# tar -> tar
+	##############################################################
+
+	# The following packages also were skipped due to the same
+	# reason.
+
+	# ed    -> ed
+	# grep  -> grep
+	# sed   -> sed
+	# tar   -> tar
 	for p in cat chgrp chmod chown cp date dd echo false \
 		hostname kill ln ls mkdir mknod mv pwd readlink \
 		rm rmdir sleep sync touch true uname \
