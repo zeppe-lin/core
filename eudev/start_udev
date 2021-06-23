@@ -8,14 +8,14 @@
 
 UDEVOPTS="exec,nosuid,noatime,mode=0755,nr_blocks=2048,nr_inodes=16384"
 if /bin/mountpoint -q /dev ; then
-	/bin/mount -n -o remount,${UDEVOPTS} dev /dev
+	/sbin/mount -n -o remount,${UDEVOPTS} dev /dev
 else
-	/bin/mount -n -t devtmpfs -o ${UDEVOPTS} dev /dev
+	/sbin/mount -n -t devtmpfs -o ${UDEVOPTS} dev /dev
 fi
 
 # mount /run directory if not mounted
 if ! /bin/mountpoint -q /run ; then
-	/bin/mount -n -t tmpfs -o mode=0755,nosuid,nodev,exec tmpfs /run
+	/sbin/mount -n -t tmpfs -o mode=0755,nosuid,nodev,exec tmpfs /run
 fi
 
 # copy devcies from /lib/udev/devices
@@ -29,3 +29,4 @@ test -z "$(/bin/pidof -s udevd)" && /sbin/udevd --daemon
 /sbin/udevadm trigger --type=devices --action=add
 /sbin/udevadm settle
 
+# End of file.
