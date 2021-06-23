@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # /etc/rc.multi: multi-user startup script
 #
@@ -12,16 +12,16 @@ if [ -x /etc/rc.fix ]; then
 fi
 
 # Start services
-if [ "$SYSLOG" -o "${SERVICES[*]}" ]; then
-	echo -n "starting services:"
-	if [ -f /etc/rc.d/$SYSLOG -a -x /etc/rc.d/$SYSLOG ]; then
-		echo -n " $SYSLOG"
-		/etc/rc.d/$SYSLOG start &> /dev/null || echo -n "[ERROR]"
+if [ "$SYSLOG" ] || [ "$SERVICES" ]; then
+	/bin/echo -n "starting services:"
+	if [ -f /etc/rc.d/$SYSLOG ] && [ -x /etc/rc.d/$SYSLOG ]; then
+		/bin/echo -n " $SYSLOG"
+		/etc/rc.d/$SYSLOG start >/dev/null 2>&1 || /bin/echo -n "[ERROR]"
 	fi
-	for service in ${SERVICES[@]}; do
+	for service in $SERVICES; do
 		echo -n " $service"
-		/etc/rc.d/$service start &> /tmp/rc.$$ || echo -n "[ERROR]"
-		/usr/bin/logger -t $service -f /tmp/rc.$$
+		"/etc/rc.d/$service" start >/tmp/rc.$$ 2>&1 || /bin/echo -n "[ERROR]"
+		/usr/bin/logger -t "$service" < /tmp/rc.$$
 		/bin/rm -f /tmp/rc.$$
 	done
 	echo

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # /etc/rc.boot: system boot script
 #
@@ -9,11 +9,11 @@ echo "The system is coming up.  Please wait."
 . /etc/rc.conf
 
 # Soft reboot on ctrl-alt-del
-/sbin/ctrlaltdel soft
+/sbin/ctrlaltdel -s
 
 # Start udev
-/bin/mountpoint -q /proc || /bin/mount -t proc  none /proc
-/bin/mountpoint -q /sys  || /bin/mount -t sysfs none /sys
+/bin/mountpoint -q /proc || /sbin/mount -t proc  none /proc
+/bin/mountpoint -q /sys  || /sbin/mount -t sysfs none /sys
 /sbin/start_udev
 
 # Create device-mapper device nodes and scan for LVM volume groups
@@ -23,7 +23,7 @@ if [ -x /sbin/lvm ]; then
 fi
 
 # Mount root read-only
-/bin/mount -o remount,ro /
+/sbin/mount -o remount,ro /
 
 if [ -f /forcefsck ]; then
 FORCEFSCK="-f"
@@ -45,15 +45,17 @@ if [ $? -gt 1 ]; then
 	echo
 	/bin/sh
 	echo "Automatic reboot in progress..."
-	/bin/umount -a -r
-	/bin/mount -o remount,ro /
+	/sbin/umount -a -l
+	/sbin/mount -o remount,ro /
 	/sbin/halt -r
 	exit 0
 fi
 
+# Remount root filesystem read-write
+/sbin/mount -o remount,rw /
+
 # Mount local filesystems
-/bin/mount -o remount,rw /
-/bin/mount -a -O no_netdev
+/sbin/mount -a # XXX -t nonfs
 
 # Activate swap
 /sbin/swapon -a
@@ -67,7 +69,7 @@ fi
 /bin/mkdir -m 1777 /tmp/.ICE-unix
 
 # Set kernel variables
-/sbin/sysctl -p > /dev/null
+/sbin/sysctl -p /etc/sysctl.conf > /dev/null
 
 # Update shared library links
 /sbin/ldconfig
@@ -83,9 +85,10 @@ fi
 
 # Configure system clock
 if [ "$TIMEZONE" ] && [ -f /usr/share/zoneinfo/$TIMEZONE ]; then
-	/bin/ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
+	/bin/ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 fi
-/sbin/hwclock --hctosys
+# Set the system time from the hardware clock
+/sbin/hwclock -s
 
 # Load console font
 if [ "$FONT" ] && [ -x /usr/bin/setfont ]; then
@@ -112,7 +115,7 @@ fi
 # Save boot messages
 /bin/dmesg > /var/log/boot
 if [ -f /proc/sys/kernel/dmesg_restrict ]; then
-	if [ "$(< /proc/sys/kernel/dmesg_restrict)" = 1 ]; then
+	if [ "$(cat /proc/sys/kernel/dmesg_restrict)" = 1 ]; then
 		/bin/chmod 0600 /var/log/boot
 	else
 		/bin/chmod 0644 /var/log/boot
@@ -120,9 +123,9 @@ if [ -f /proc/sys/kernel/dmesg_restrict ]; then
 fi
 
 # Boot single- or multi-user mode
-case "$(< /proc/cmdline)" in
-*\ single*) [ -x /etc/rc.single ] && /etc/rc.single ;;
-*)          [ -x /etc/rc.multi  ] && /etc/rc.multi  ;;
+case "$(cat /proc/cmdline)" in
+*\ single\ *) [ -x /etc/rc.single ] && /etc/rc.single ;;
+*)            [ -x /etc/rc.multi  ] && /etc/rc.multi  ;;
 esac
 
 # End of file

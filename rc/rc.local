@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # /etc/rc.local: local multi-user startup script
 #

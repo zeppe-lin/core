@@ -3,7 +3,7 @@
 
 name=rc
 version=2.32
-release=1
+release=2
 source=(Pkgfile
 	rc.boot
 	rc.conf
