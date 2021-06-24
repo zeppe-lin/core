@@ -1,6 +1,6 @@
 # Description: Python interpreter, version 3
 # URL:         https://www.python.org/
-# Depends on:  bzip2 e2fsprogs expat gdbm libffi libnsl openssl sqlite3 xz
+# Depends on:  bzip2 expat gdbm libffi libnsl openssl sqlite3 xz
 
 name=python3
 version=3.9.5
