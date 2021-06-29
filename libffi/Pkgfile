@@ -3,8 +3,8 @@
 
 name=libffi
 version=3.3
-release=1
-source=(https://sourceware.org/pub/$name/$name-$version.tar.gz)
+release=2
+source=(https://github.com/$name/$name/archive/v$version/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
@@ -18,7 +18,8 @@ build() {
 		-i libffi.pc.in
 
 	./configure \
-		--prefix=/usr
+		--prefix=/usr    \
+		--disable-static \
 
 	make V=1
 	make DESTDIR=$PKG install
