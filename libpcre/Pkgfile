@@ -2,7 +2,7 @@
 # URL:         http://www.pcre.org
 
 name=libpcre
-version=8.44
+version=8.45
 release=1
 source=(https://ftp.pcre.org/pub/pcre/pcre-$version.tar.bz2)
 
@@ -14,6 +14,7 @@ build() {
 		--enable-jit                \
 		--enable-unicode-properties \
 		--enable-utf8               \
+		--disable-static            \
 
 	make V=1
 	make DESTDIR=$PKG install
