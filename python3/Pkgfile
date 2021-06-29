@@ -3,7 +3,7 @@
 # Depends on:  bzip2 expat gdbm libffi libnsl openssl sqlite3 xz
 
 name=python3
-version=3.9.5
+version=3.9.6
 release=1
 source=(https://www.python.org/ftp/python/${version%rc*}/Python-$version.tar.xz)
 
@@ -31,7 +31,7 @@ build() {
 		--without-ensurepip                   \
 		ac_cv_prog_cc_g="no"                  \
 
-	make
+	make V=1
 	make -j1 DESTDIR=$PKG altinstall maninstall
 
 	ln -s 2to3-${version%.*}            $PKG/usr/bin/2to3
