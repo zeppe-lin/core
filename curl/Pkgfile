@@ -3,7 +3,7 @@
 # Depends on:  openssl zstd
 
 name=curl
-version=7.76.1
+version=7.77.0
 release=1
 source=(https://curl.haxx.se/download/$name-$version.tar.xz)
 
@@ -14,9 +14,11 @@ build() {
 		--prefix=/usr                      \
 		--disable-ldap                     \
 		--disable-ldaps                    \
+		--disable-static                   \
 		--enable-ipv6                      \
 		--enable-threaded-resolver         \
 		--with-ca-bundle=/etc/ssl/cert.pem \
+		--with-openssl                     \
 		--without-cyassl                   \
 		--without-libidn                   \
 		--without-libidn2                  \
