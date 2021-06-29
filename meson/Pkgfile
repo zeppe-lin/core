@@ -3,8 +3,8 @@
 # Depends on:  python3-setuptools
 
 name=meson
-version=0.58.0
-release=2
+version=0.58.1
+release=1
 source=(https://github.com/mesonbuild/meson/releases/download/$version/$name-$version.tar.gz)
 
 build() {
