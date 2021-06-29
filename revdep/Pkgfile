@@ -3,7 +3,7 @@
 # Depends on:  elfutils
 
 name=revdep
-version=2.0-b65a349
+version=2.0-ee58142
 release=1
 source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz)
 
