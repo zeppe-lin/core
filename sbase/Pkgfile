@@ -3,7 +3,7 @@
 
 name=sbase
 version=0.1-1f7d82e
-release=1
+release=2
 source=(https://github.com/zeppe-lin/$name/archive/${version##*-}/$name-${version##*-}.tar.gz
 	cron.rc crontab runjobs
 	xinstall_p_option.patch)
@@ -50,7 +50,7 @@ build() {
 	done
 	install -m 755 xinstall   $PKG/usr/bin/install
 	install -m 644 xinstall.1 $PKG/usr/share/man/man1/install.1
-	ln -s /usr/bin/test [
+	ln -s /usr/bin/test "$PKG/usr/bin/["
 	install -m 600 -D $SRC/crontab $PKG/etc/crontab
 	install -m 755 -D $SRC/cron.rc $PKG/etc/rc.d/cron
 	install -m 755 -D $SRC/runjobs $PKG/usr/bin/runjobs
